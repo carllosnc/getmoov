@@ -64,14 +64,17 @@ function formatMovie(movie){
   console.log(``)
 }
 
+function formatCredits(){
+  console.log(`\n  Getmoov | designed and coded with ${Red("♥")} \n`)
+}
+
 function formatTorrentLink(torrent){
   console.log(``)
   console.log(`  For a better experience download the qbittorrent.`)
   console.log(`  ${Cyan("https://www.qbittorrent.org/download.php")}`)
   console.log(``)
   console.log(`  ${RedBg(` TORRENT LINK: `)} ${torrent}`)
-  console.log(``)
-  console.log(`  Getmoov | designed and coded with ${Red("♥")} \n`)
+  formatCredits()
 }
 
 module.exports = {
@@ -79,5 +82,6 @@ module.exports = {
   formatYtsTorrents,
   formatPopcornTorrents,
   formatTorrentLink,
-  formatMovie
+  formatMovie,
+  formatCredits
 }

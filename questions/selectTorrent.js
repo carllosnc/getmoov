@@ -15,6 +15,7 @@ function selectTorrent(options){
   .then(res => {
     if(shell.which("qbittorrent")){
       shell.exec(`qbittorrent ${res.torrent}`)
+      format.formatCredits()
     }else{
       format.formatTorrentLink(res.torrent)
     }
