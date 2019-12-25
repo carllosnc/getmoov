@@ -6,6 +6,5 @@
   A simple CLI to download movies from YTS and Popcorn Time.
 </p>
 
-<p align="center">
-  <img alt="React native" src="https://dl.dropboxusercontent.com/s/awmva107puj9hse/getmoov.gif"/>
-</p>
+<img alt="getmoov" src="https://dl.dropboxusercontent.com/s/awmva107puj9hse/getmoov.gif" />
+
