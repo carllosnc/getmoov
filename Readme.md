@@ -7,5 +7,5 @@
 </p>
 
 <p align="center">
-  <img alt="React native" src="https://dl.dropboxusercontent.com/s/qhdo7njqnhbyc8x/getmoov.gif" />
+  <img alt="React native" src="https://dl.dropboxusercontent.com/s/qhdo7njqnhbyc8x/getmoov.gif" width="750" />
 </p>
