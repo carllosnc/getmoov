@@ -11,7 +11,7 @@ const backOption = {
   value: "back"
 }
 
-function success(ytsResponse, searchMovieQuestion){
+async function success(ytsResponse, searchMovieQuestion){
   const { movie } = ytsResponse
 
   if(movie === "back"){
@@ -20,38 +20,38 @@ function success(ytsResponse, searchMovieQuestion){
   }
 
   formats.formatMovie(movie)
+
   spinner.start()
 
-  services
-    .getPopcornTorrents(movie.imdb_code)
-    .then(popCornResponse => {
-      spinner.stop()
-      selectTorrent([
-        ...formats.formatYtsTorrents(movie.torrents),
-        ...formats.formatPopcornTorrents(popCornResponse)
-      ])
-    })
-}
+  try {
+    const popCornResponse = await services.getPopcornTorrents(movie.imdb_code)
 
-function error(error){
-  formats.errorMessage(error.message)
-}
+    spinner.stop()
 
-function movieDetails(searchMovieQuestion, list){
-  inquirer
-    .prompt([
-      {
-        type: "list",
-        name: "movie",
-        message: `Choose the movie (${list.length} results):`,
-        choices: [...list, backOption],
-        pageSize: 20
-      }
+    selectTorrent([
+      ...formats.formatYtsTorrents(movie.torrents),
+      ...formats.formatPopcornTorrents(popCornResponse)
     ])
-    .then(res => {
-      success(res, searchMovieQuestion)
-    })
-    .catch(error)
+  } catch (error) {
+    formats.errorMessage(error.message)
+  }
+}
+
+async function movieDetails(searchMovieQuestion, list){
+  try {
+    const result = await inquirer.prompt([{
+      type: "list",
+      name: "movie",
+      message: `Choose the movie (${list.length} results):`,
+      choices: [...list, backOption],
+      pageSize: 20
+    }])
+
+    success(result, searchMovieQuestion)
+
+  } catch (error) {
+    formats.errorMessage(error.message)
+  }
 }
 
 module.exports = movieDetails

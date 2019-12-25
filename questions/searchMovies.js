@@ -15,30 +15,27 @@ function success(res){
     return false
   }
 
-  movieDetails(searchMovies, formats.formatMovieList(movies))
+  movieDetails(
+    searchMovies,
+    formats.formatMovieList(movies)
+  )
 }
 
-function error(err){
-  formats.errorMessage(err.message)
-}
-
-function searchMovies(){
-  inquirer
-  .prompt([
-    {
+async function searchMovies(){
+  try {
+    const result = await inquirer.prompt([{
       type: "input",
       name: "movieName",
       message: "Search movie:"
-    },
-  ])
-  .then(res => {
-    spinner.start()
+    }])
 
-    services
-      .getMovies(res.movieName)
-      .then(success)
-      .catch(error)
-  })
+    spinner.start()
+    const response = await services.getMovies(result.movieName)
+    success(response)
+
+  } catch (error) {
+    formats.errorMessage(err.message)
+  }
 }
 
 module.exports = searchMovies

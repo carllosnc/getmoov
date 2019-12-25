@@ -1,25 +1,27 @@
 const inquirer = require("inquirer")
 const shell = require("shelljs")
-const format = require("../formats")
+const formats = require("../formats")
 
-function selectTorrent(options){
-  inquirer
-  .prompt([
-    {
+async function selectTorrent(options){
+  try {
+    const result = await inquirer.prompt([{
       type: "list",
       name: "torrent",
       message: "Choose torrent quality:",
       choices: options
-    }
-  ])
-  .then(res => {
+    }])
+
+    const {torrent} = result
+
     if(shell.which("qbittorrent")){
-      shell.exec(`qbittorrent ${res.torrent}`)
-      format.formatCredits()
+      shell.exec(`qbittorrent ${torrent}`)
+      formats.formatCredits()
     }else{
-      format.formatTorrentLink(res.torrent)
+      formats.formatTorrentLink(torrent)
     }
-  })
+  } catch (error) {
+    formats.errorMessage(error.message)
+  }
 }
 
 module.exports = selectTorrent
