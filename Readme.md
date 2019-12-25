@@ -21,8 +21,8 @@
 
 ### Dependencies
 
--[Node](https://github.com/nvm-sh/nvm)
--[QBitTorrent](https://www.qbittorrent.org/download.php)
+- [Node](https://github.com/nvm-sh/nvm)
+- [QBitTorrent](https://www.qbittorrent.org/download.php)
 
 ### Features
 
