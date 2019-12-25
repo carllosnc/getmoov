@@ -6,4 +6,4 @@
 A simple CLI to download movies from YTS and Popcorn Time.
 </p>
 
-[![asciicast](https://asciinema.org/a/Vf4pz26BoQSPVB006mf7rHA1c.svg)](https://asciinema.org/a/Vf4pz26BoQSPVB006mf7rHA1c)
+[![asciicast](https://asciinema.org/a/QRk0wyUGG0quAYK0phA0rsOz7.svg)](https://asciinema.org/a/QRk0wyUGG0quAYK0phA0rsOz7)
