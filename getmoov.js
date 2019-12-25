@@ -1,9 +1,5 @@
 const questions = require("./questions")
+const formats = require("./formats")
 
-console.log(`
-  ▄▄▄▄▄▄▄
-  Getmoov
-  ▀▀▀▀▀▀▀
-`)
-
+formats.formatLogo()
 questions.searchMovies()

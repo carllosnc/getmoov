@@ -64,6 +64,14 @@ function formatMovie(movie){
   console.log(``)
 }
 
+function formatLogo(){
+  console.log(`
+  ▄▄▄▄▄▄▄
+  Getmoov
+  ▀▀▀▀▀▀▀
+  `)
+}
+
 function formatCredits(){
   console.log(`\n  Getmoov | designed and coded with ${Red("♥")} \n`)
 }
@@ -83,5 +91,6 @@ module.exports = {
   formatPopcornTorrents,
   formatTorrentLink,
   formatMovie,
-  formatCredits
+  formatCredits,
+  formatLogo
 }
