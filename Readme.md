@@ -22,12 +22,13 @@
 ### Dependencies
 
 [Node](https://github.com/nvm-sh/nvm)
+[QBitTorrent](https://www.qbittorrent.org/download.php)
 
 ### Features
 
-  - :heavy_check_mark: Search and download movies
-  - :black_square_button: search and download tvshows
-  - :black_square_button: search and download animes
+  - :heavy_check_mark: Search movies and get the torrent
+  - :black_square_button: Search movies TVshows and get the torrent
+  - :black_square_button: Search animes and gte the torrent
   - :black_square_button: add link to download subtitles
 
 ---
