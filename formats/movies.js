@@ -4,9 +4,8 @@ const CyanBold = title => chalk.cyan.bold(title)
 const YellowBold = date => chalk.yellow.bold(date)
 const Green = info => chalk.green.bold(info)
 const Yellow = detail => chalk.yellow(detail)
-const Cyan = link => chalk.cyan(link)
 const Red = text => chalk.red(text)
-const RedBg = text => chalk.bgGreen.black(text)
+const GreenBg = text => chalk.bgGreen.black(text)
 
 function formatMovieList(list){
   return list.map(movie => {
@@ -77,12 +76,7 @@ function formatCredits(){
 }
 
 function formatTorrentLink(torrent){
-  console.log(``)
-  console.log(`  For a better experience download the qbittorrent.`)
-  console.log(`  ${Cyan("https://www.qbittorrent.org/download.php")}`)
-  console.log(``)
-  console.log(`  ${RedBg(` TORRENT LINK: `)} ${torrent}`)
-  formatCredits()
+  console.log(`\n  ${GreenBg(` TORRENT LINK: `)} ${torrent} \n`)
 }
 
 module.exports = {
