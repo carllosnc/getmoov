@@ -1,5 +1,6 @@
 const values = require("../values")
 const axios = require("axios")
+const print = require("../print")
 
 async function getMovies(movieName){
   const { SERVERS } = values
@@ -9,7 +10,7 @@ async function getMovies(movieName){
     const res = await axios.get(endpoint)
     return res.data
   } catch (error) {
-    console.log(error.message)
+    print.errorMessage(error.message)
   }
 }
 
@@ -21,11 +22,11 @@ async function getMovieDetails(movieId){
     const res = await axios.get(endpoint)
     return res.data
   } catch (error) {
-    console.log(error.message)
+    print.errorMessage(error.message)
   }
 }
 
-async function getPopcornTorrents(imdbId){
+async function getpopcornTorrents(imdbId){
   const { SERVERS } = values
   const endpoint = `${SERVERS.POPCORN}/movie/${imdbId}`
 
@@ -33,12 +34,12 @@ async function getPopcornTorrents(imdbId){
     const res = await axios.get(endpoint)
     return res.data
   } catch (error) {
-    // for debug: console.log(error.message)
+    // for debug: print.errorMessage(error.message)
   }
 }
 
 module.exports = {
   getMovies,
   getMovieDetails,
-  getPopcornTorrents
+  getpopcornTorrents
 }
