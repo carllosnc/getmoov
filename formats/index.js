@@ -1,7 +1,7 @@
 const movieFormats = require("./movies")
-const errorFormats = require("./errors")
+const torrentFormats = require("./torrents")
 
 module.exports = {
   ...movieFormats,
-  ...errorFormats
+  ...torrentFormats
 }
