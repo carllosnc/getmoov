@@ -1,9 +1,13 @@
 const searchMovies = require("./searchMovies")
-const movieDetails = require("./movieDetails")
+const selectMovie = require("./selectMovie")
 const selectTorrent = require("./selectTorrent")
+const selectLegend = require("./selectLegend")
+const selectClient = require("./selectClient")
 
 module.exports = {
   searchMovies,
-  movieDetails,
-  selectTorrent
+  selectMovie,
+  selectTorrent,
+  selectLegend,
+  selectClient
 }

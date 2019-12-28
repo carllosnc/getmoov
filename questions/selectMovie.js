@@ -8,7 +8,7 @@ async function movieDetails(list){
       type: "list",
       name: "movie",
       message: `Choose the movie (${list.length} results):`,
-      choices: [...formats.formatMovieList(list)],
+      choices: [...formats.movieList(list)],
       pageSize: 20
     }])
 

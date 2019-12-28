@@ -8,7 +8,7 @@ async function selectClient(){
       type: "list",
       name: "client",
       message: "Torrent client",
-      choices: formats.FormatTorrentClientOptions()
+      choices: formats.torrentClientOptions()
     })
 
     return result

@@ -1,25 +1,8 @@
 const inquirer = require("inquirer")
 const ora = require("ora")
 const services = require("../services")
-const formats = require("../formats")
-const movieDetails = require("./movieDetails")
+const print = require("../print")
 const spinner = ora("Searching movie...")
-
-function success(res){
-  const { movie_count, movies } = res.data
-
-  spinner.stop()
-
-  if(!movie_count){
-    formats.noResultFound()
-    return false
-  }
-
-  movieDetails(
-    searchMovies,
-    formats.formatMovieList(movies)
-  )
-}
 
 async function searchMovies(){
   try {
@@ -31,10 +14,12 @@ async function searchMovies(){
 
     spinner.start()
     const response = await services.getMovies(result.movieName)
-    success(response)
+    spinner.stop()
+
+    return response.data.movies
 
   } catch (error) {
-    formats.errorMessage(err.message)
+    print.errorMessage(err.message)
   }
 }
 
