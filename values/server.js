@@ -5,5 +5,5 @@ const YIFY_LEGENDS = "https://www.yifysubtitles.com"
 module.exports = {
   YTS,
   POPCORN,
-  YIFY_LEGENDS
+  YIFY_LEGENDS,
 }

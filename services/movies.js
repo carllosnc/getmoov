@@ -2,7 +2,7 @@ const values = require("../values")
 const axios = require("axios")
 const print = require("../print")
 
-async function getMovies(movieName){
+async function getMovies(movieName) {
   const { SERVERS } = values
   const endpoint = `${SERVERS.YTS}/list_movies.json?query_term="${movieName}"&sort_by=year&limit=50`
 
@@ -15,7 +15,7 @@ async function getMovies(movieName){
   }
 }
 
-async function getMovieDetails(movieId){
+async function getMovieDetails(movieId) {
   const { SERVERS } = values
   const endpoint = `${SERVERS.YTS}/movie_details.json?movie_id=${movieId}`
 
@@ -28,7 +28,7 @@ async function getMovieDetails(movieId){
   }
 }
 
-async function getpopcornTorrents(imdbId){
+async function getpopcornTorrents(imdbId) {
   const { SERVERS } = values
   const endpoint = `${SERVERS.POPCORN}/movie/${imdbId}`
 
@@ -43,5 +43,5 @@ async function getpopcornTorrents(imdbId){
 module.exports = {
   getMovies,
   getMovieDetails,
-  getpopcornTorrents
+  getpopcornTorrents,
 }

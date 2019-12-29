@@ -1,47 +1,49 @@
 const colors = require("../colors")
 const shell = require("shelljs")
 
-function ratingSub(rating){
+function ratingSub(rating) {
   const value = Number(rating)
 
-  if(value > 0){
+  if (value > 0) {
     return colors.GreenBg(` ${value} `)
   }
-  if(value < 0){
+  if (value < 0) {
     return colors.RedBg(` ${value} `)
   }
 
   return colors.YellowBg(` ${value} `)
 }
 
-function yifySubtitle(torrentList){
+function yifySubtitle(torrentList) {
   return torrentList.map(legend => {
     const lang = colors.Green(`${legend.lang.toUpperCase()}`)
     const name = legend.name
 
     return {
       name: `${ratingSub(legend.rating)} • ${lang} | ${name}`,
-      value: legend.link
+      value: legend.link,
     }
   })
 }
 
-function subtitleClients(){
-  const clients = [{
-    name: "Print Link",
-    value: "print"
-  }]
+function subtitleClients() {
+  const clients = [
+    {
+      name: "Print Link",
+      value: "print",
+    },
+  ]
 
-  if(shell.which("firefox")){
+  if (shell.which("firefox")) {
     clients.push({
       name: "Firefox",
-      value: "firefox"
+      value: "firefox",
     })
   }
-  if(shell.which("wget")){
+  if (shell.which("wget")) {
     clients.push({
       name: "WGet",
-      value: "wget"
+      value: "wget",
     })
   }
 
@@ -50,5 +52,5 @@ function subtitleClients(){
 
 module.exports = {
   yifySubtitle,
-  subtitleClients
+  subtitleClients,
 }

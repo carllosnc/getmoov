@@ -1,11 +1,11 @@
 const cheerio = require("cheerio")
 
-function filterSubtitles(content){
+function filterSubtitles(content) {
   const $ = cheerio.load(content)
   const SERVER = "https://www.yifysubtitles.com/subtitle"
   const subs = []
 
-  $(".other-subs tr").each(function(index, item){
+  $(".other-subs tr").each(function(index, item) {
     const element = $(item)
 
     const rating = element.find(".rating-cell > .label").text()
@@ -13,7 +13,7 @@ function filterSubtitles(content){
     const link = element.find(".flag-cell").next().find("a").attr("href")
     const name = element.find(".flag-cell").next().find("a").text()
 
-    if(rating && lang && link && name){
+    if (rating && lang && link && name) {
       const fileName = link.replace("/subtitles/", "").trim()
 
       const formatedLink = `${SERVER}/${fileName}.zip`
@@ -23,7 +23,7 @@ function filterSubtitles(content){
         rating: rating,
         lang: lang,
         link: formatedLink,
-        name: formatedName
+        name: formatedName,
       })
     }
   })
@@ -32,5 +32,5 @@ function filterSubtitles(content){
 }
 
 module.exports = {
-  filterSubtitles
+  filterSubtitles,
 }

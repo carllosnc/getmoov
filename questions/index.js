@@ -11,5 +11,5 @@ module.exports = {
   selectTorrent,
   selectSubtitle,
   selectTorrentClient,
-  selectSubtitleClient
+  selectSubtitleClient,
 }

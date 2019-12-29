@@ -12,7 +12,7 @@ const loadingSubtitles = ora("Searching subtitles...")
 
 print.logo()
 
-async function app(){
+async function app() {
   /*=========================
     Search
   ===========================*/
@@ -26,7 +26,7 @@ async function app(){
   loadingSearch.stop()
 
   // No result
-  if(!movies){
+  if (!movies) {
     print.errorMessage("\n  No movies found.")
     print.credits()
     process.exit()
@@ -54,7 +54,7 @@ async function app(){
   // Select torrent quality
   const torrentQuality = await questions.selectTorrent([
     ...formats.ytsTorrents(movie.torrents),
-    ...formats.popcornTorrents(popCornResponse)
+    ...formats.popcornTorrents(popCornResponse),
   ])
 
   /*=========================
@@ -79,8 +79,8 @@ async function app(){
   const filteredSubtitles = crawlers.filterSubtitles(legends)
 
   // No subtitle found
-  if(!filteredSubtitles.length){
-    print.errorMessage(`  No subtitles found.`)
+  if (!filteredSubtitles.length) {
+    print.errorMessage("  No subtitles found.")
     print.credits()
     process.exit()
   }

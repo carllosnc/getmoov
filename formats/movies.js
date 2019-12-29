@@ -1,14 +1,14 @@
 const colors = require("../colors")
 
-function movieList(list){
+function movieList(list) {
   return list.map(movie => {
     return {
       name: `${colors.YellowBold(movie.year)} | ${movie.title}`,
-      value: movie
+      value: movie,
     }
   })
 }
 
 module.exports = {
-  movieList
+  movieList,
 }

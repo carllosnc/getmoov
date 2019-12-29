@@ -2,17 +2,16 @@ const inquirer = require("inquirer")
 const print = require("../print")
 const formats = require("../formats")
 
-async function selectTorrentClient(){
+async function selectTorrentClient() {
   try {
     const result = await inquirer.prompt({
       type: "list",
       name: "client",
       message: "Torrent client:",
-      choices: formats.torrentClientOptions()
+      choices: formats.torrentClientOptions(),
     })
 
     return result
-
   } catch (error) {
     print.errorMessage(error.message)
   }

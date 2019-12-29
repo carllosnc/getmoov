@@ -5,5 +5,5 @@ const subtitlesFormats = require("./subtitles")
 module.exports = {
   ...movieFormats,
   ...torrentFormats,
-  ...subtitlesFormats
+  ...subtitlesFormats,
 }

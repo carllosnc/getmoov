@@ -1,26 +1,28 @@
 const colors = require("../colors")
 const shell = require("shelljs")
 
-function ytsTorrents(list){
+function ytsTorrents(list) {
   return list.map(torrent => {
-    const quality = `${colors.Green(`[YTS] Torrent ${torrent.quality} • ${torrent.type}:`)}`
+    const quality = `${colors.Green(
+      `[YTS] Torrent ${torrent.quality} • ${torrent.type}:`
+    )}`
     const size = `${colors.Yellow("Size:")} ${torrent.size}`
     const peers = `${colors.Yellow("Peers:")} ${torrent.peers}`
     const seeds = `${colors.Yellow("Seeders:")} ${torrent.seeds}`
 
     return {
       name: `${quality} ${size} | ${peers} | ${seeds}`,
-      value: torrent.url
+      value: torrent.url,
     }
   })
 }
 
-function popcornTorrents(movie){
+function popcornTorrents(movie) {
   const formatedTorrents = []
 
-  if(movie && movie.torrents){
+  if (movie && movie.torrents) {
     for (const lang in movie.torrents) {
-      for(const item in movie.torrents[lang]){
+      for (const item in movie.torrents[lang]) {
         const torrent = movie.torrents[lang][item]
 
         const quality = `${colors.Green(`[POPCORN] Torrent ${item}:`)}`
@@ -30,7 +32,7 @@ function popcornTorrents(movie){
 
         formatedTorrents.push({
           name: `${quality} ${size} | ${peers} | ${seeds}`,
-          value: torrent.url
+          value: torrent.url,
         })
       }
     }
@@ -39,16 +41,18 @@ function popcornTorrents(movie){
   return formatedTorrents
 }
 
-function torrentClientOptions(){
-  const options = [{
-    name: "Print Link",
-    value: "print"
-  }]
+function torrentClientOptions() {
+  const options = [
+    {
+      name: "Print Link",
+      value: "print",
+    },
+  ]
 
-  if(shell.which("qbittorrent")){
+  if (shell.which("qbittorrent")) {
     options.push({
       name: "QBitTorrent",
-      value: "qbittorrent"
+      value: "qbittorrent",
     })
   }
 
@@ -58,5 +62,5 @@ function torrentClientOptions(){
 module.exports = {
   ytsTorrents,
   popcornTorrents,
-  torrentClientOptions
+  torrentClientOptions,
 }

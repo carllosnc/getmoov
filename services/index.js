@@ -3,5 +3,5 @@ const subtitlesServices = require("./subtitles")
 
 module.exports = {
   ...movieServices,
-  ...subtitlesServices
+  ...subtitlesServices,
 }

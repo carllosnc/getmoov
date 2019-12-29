@@ -21,5 +21,5 @@ module.exports = {
   Red,
   RedBg,
   GreenBg,
-  Err
+  Err,
 }
