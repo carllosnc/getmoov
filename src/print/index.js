@@ -11,7 +11,7 @@ function successMessage(message) {
 function movie(movie) {
   console.log("")
   console.log(`  ${colors.YellowBold(movie.year)} • ${colors.CyanBold(movie.title)}`)
-  console.log(`  ${colors.Green("language:")} ${movie.language}`)
+  console.log(`  ${colors.Green("Language:")} ${movie.language}`)
   console.log(`  ${colors.Green("Trailer:")} https://www.youtube.com/watch?v=${movie.yt_trailer_code}`)
   console.log(`  ${colors.Green("Cover:")} ${movie.large_cover_image}`)
   console.log("")
