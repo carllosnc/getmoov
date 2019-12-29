@@ -18,7 +18,7 @@ function downloadSubtitle(client, subtitle){
   }
   else if(client === "wget"){
     shell.exec(`wget -P ~/Downloads/ ${subtitle}`)
-    print.successMessage("Subtitle saved in your download folder [ ~/Download ]")
+    print.successMessage(`  Subtitle saved in your download folder [ ~/Download ]`)
   }
   else{
     shell.exec(`${client} ${subtitle}`)
