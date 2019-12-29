@@ -4,7 +4,7 @@ const print = require("../print")
 
 async function getSubtitles(imdbId){
   const { SERVERS } = values
-  const endpoint = `${SERVERS.YIFY_LEGENDS}/movie-imdb/${imdbId}1`
+  const endpoint = `${SERVERS.YIFY_LEGENDS}/movie-imdb/${imdbId}`
 
   try {
     const res = await axios.get(endpoint)
