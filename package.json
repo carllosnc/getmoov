@@ -4,7 +4,9 @@
   "description": "Search and download movies",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "eslint src/**",
+    "format-fix": "eslint src/** --fix"
   },
   "author": "",
   "license": "ISC",
