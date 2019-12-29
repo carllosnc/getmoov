@@ -36,7 +36,7 @@ async function getpopcornTorrents(imdbId) {
     const res = await axios.get(endpoint)
     return res.data
   } catch (error) {
-    print.errorMessage(` No torrents provided by Popcorn Time`)
+    print.errorMessage(" No torrents provided by Popcorn Time")
   }
 }
 
