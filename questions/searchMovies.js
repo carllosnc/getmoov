@@ -1,8 +1,6 @@
 const inquirer = require("inquirer")
 const ora = require("ora")
-const services = require("../services")
 const print = require("../print")
-const spinner = ora("Searching movie...")
 
 async function searchMovies(){
   try {
@@ -12,11 +10,7 @@ async function searchMovies(){
       message: "Search movie:"
     }])
 
-    spinner.start()
-    const response = await services.getMovies(result.movieName)
-    spinner.stop()
-
-    return response.data.movies
+    return result.movieName
 
   } catch (error) {
     print.errorMessage(err.message)

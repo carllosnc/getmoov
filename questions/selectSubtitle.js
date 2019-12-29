@@ -1,19 +1,22 @@
 const inquirer = require("inquirer")
 const print = require("../print")
+const formats = require("../formats")
 
-async function selectLengend(){
+async function selectSubtitle(legends){
   try {
     const result = await inquirer.prompt([{
       type: "list",
       name: "legend",
-      message: "Choose the legend",
-      choices: ["primeira", "segunda", "terceira", "quarta"]
+      message: "Select Subtitle:",
+      pageSize: 20,
+      choices: formats.yifySubtitle(legends)
     }])
 
-    console.log(result)
+    return result.legend
+
   } catch (error) {
     print.errorMessage(error.message)
   }
 }
 
-module.exports = selectLengend
+module.exports = selectSubtitle

@@ -1,14 +1,14 @@
 const inquirer = require("inquirer")
 const print = require("../print")
 
-async function selectTorrent(options){
+async function selectTorrent(torrentOptions){
   try {
     const result = await inquirer.prompt([
       {
         type: "list",
         name: "torrent",
         message: "Torrent quality:",
-        choices: options
+        choices: torrentOptions
       },
     ])
 

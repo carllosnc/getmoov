@@ -2,12 +2,12 @@ const inquirer = require("inquirer")
 const print = require("../print")
 const formats = require("../formats")
 
-async function selectClient(){
+async function selectTorrentClient(){
   try {
     const result = await inquirer.prompt({
       type: "list",
       name: "client",
-      message: "Torrent client",
+      message: "Torrent client:",
       choices: formats.torrentClientOptions()
     })
 
@@ -18,4 +18,4 @@ async function selectClient(){
   }
 }
 
-module.exports = selectClient
+module.exports = selectTorrentClient
