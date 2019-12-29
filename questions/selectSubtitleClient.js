@@ -7,7 +7,7 @@ async function selectSubtitleClient(){
     const result = await inquirer.prompt([{
       type: "list",
       name: "subtitleClient",
-      message: "How to download Subtitles:",
+      message: "Download Subtitles:",
       choices: formats.subtitleClients()
     }])
 

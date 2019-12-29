@@ -4,13 +4,14 @@ const print = require("../print")
 
 async function getSubtitles(imdbId){
   const { SERVERS } = values
-  const endpoint = `${SERVERS.YIFY_LEGENDS}/movie-imdb/${imdbId}`
+  const endpoint = `${SERVERS.YIFY_LEGENDS}/movie-imdb/${imdbId}1`
 
   try {
     const res = await axios.get(endpoint)
     return res.data
   } catch (error) {
-    print.errorMessage(error.message)
+    print.errorMessage(` (Get subtitles - service): ${error.message}`)
+    process.exit()
   }
 }
 

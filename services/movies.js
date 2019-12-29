@@ -10,7 +10,8 @@ async function getMovies(movieName){
     const res = await axios.get(endpoint)
     return res.data
   } catch (error) {
-    print.errorMessage(error.message)
+    print.errorMessage(` (Get Movies - service): ${error.message}`)
+    process.exit()
   }
 }
 
@@ -22,7 +23,8 @@ async function getMovieDetails(movieId){
     const res = await axios.get(endpoint)
     return res.data
   } catch (error) {
-    print.errorMessage(error.message)
+    print.errorMessage(` (Get movie details - service): ${error.message}`)
+    process.exit()
   }
 }
 
@@ -34,7 +36,7 @@ async function getpopcornTorrents(imdbId){
     const res = await axios.get(endpoint)
     return res.data
   } catch (error) {
-    // for debug: print.errorMessage(error.message)
+    print.errorMessage(` No torrents provided by Popcorn Time`)
   }
 }
 

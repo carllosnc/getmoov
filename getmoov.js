@@ -27,8 +27,9 @@ async function app(){
 
   // No result
   if(!movies){
-    print.noResultFound()
-    return false
+    print.errorMessage("\n  No movies found.")
+    print.credits()
+    process.exit()
   }
 
   /*=========================
@@ -76,6 +77,13 @@ async function app(){
   loadingSubtitles.stop()
 
   const filteredSubtitles = crawlers.filterSubtitles(legends)
+
+  // No subtitle found
+  if(!filteredSubtitles.length){
+    print.errorMessage(`  No subtitles found.`)
+    print.credits()
+    process.exit()
+  }
 
   // Select legend
   const selectedSubtitle = await questions.selectSubtitle(filteredSubtitles)

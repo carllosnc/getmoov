@@ -1,15 +1,11 @@
 const colors = require("../colors")
 
 function errorMessage(message){
-  console.log(colors.Err(`  ${message}`))
+  console.log(colors.Err(`${message}`))
 }
 
 function successMessage(message){
-  console.log(colors.GreenBold(`  ${message} \n`))
-}
-
-function noResultFound(){
-  console.log(colors.Err(`  No result found`))
+  console.log(colors.GreenBold(`${message}`))
 }
 
 function movie(movie){
@@ -38,11 +34,10 @@ function torrentLink(torrent){
 }
 
 function subtitleLink(torrent){
-  console.log(`\n  ${colors.GreenBg(` SUBTITLE LINK: `)} ${torrent} \n`)
+  console.log(`\n  ${colors.GreenBg(` SUBTITLE LINK: `)} ${torrent}`)
 }
 
 module.exports = {
-  noResultFound,
   errorMessage,
   successMessage,
   torrentLink,
