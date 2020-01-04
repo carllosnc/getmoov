@@ -1,5 +1,5 @@
 const colors = require("../colors")
-const shell = require("shelljs")
+const shell = require("../shell")
 
 function ytsTorrents(list) {
   return list.map(torrent => {

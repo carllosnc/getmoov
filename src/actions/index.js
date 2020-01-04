@@ -1,5 +1,5 @@
 const print = require("../print")
-const shell = require("shelljs")
+const shell = require("../shell")
 
 function openClient(clientResult, torrentResult) {
   const { client } = clientResult
@@ -8,7 +8,7 @@ function openClient(clientResult, torrentResult) {
   if (client === "print") {
     print.torrentLink(torrent)
   } else {
-    shell.exec(`${client} ${torrent}`)
+    shell.run(`${client} ${torrent}`)
   }
 }
 
@@ -16,10 +16,10 @@ function downloadSubtitle(client, subtitle) {
   if (client === "print") {
     print.subtitleLink(subtitle)
   } else if (client === "wget") {
-    shell.exec(`wget -P ~/Downloads/ ${subtitle}`)
-    print.successMessage("  Subtitle saved in your download folder [ ~/Download ]")
+    shell.run(`wget -P ~/Downloads/ ${subtitle}`)
+    print.successMessage("\n  Subtitle saved in your download folder [ ~/Download ]")
   } else {
-    shell.exec(`${client} ${subtitle}`)
+    shell.run(`${client} ${subtitle}`)
   }
 }
 

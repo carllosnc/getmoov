@@ -1,5 +1,5 @@
 const colors = require("../colors")
-const shell = require("shelljs")
+const shell = require("../shell")
 
 function ratingSub(rating) {
   const value = Number(rating)
