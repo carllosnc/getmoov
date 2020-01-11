@@ -17,6 +17,14 @@ function movie(movie) {
   console.log("")
 }
 
+function popcornMovie(movie){
+  console.log("")
+  console.log(`  ${colors.YellowBold(movie.year)} • ${colors.CyanBold(movie.title)}`)
+  console.log(`  ${colors.Green("Trailer:")} ${movie.trailer}`)
+  console.log(`  ${colors.Green("Cover:")} ${movie.images.poster}`)
+  console.log("")
+}
+
 function logo() {
   console.log(`
   ▄▄▄▄▄▄▄
@@ -43,6 +51,7 @@ module.exports = {
   torrentLink,
   subtitleLink,
   movie,
+  popcornMovie,
   credits,
   logo,
 }
