@@ -15,7 +15,8 @@ async function which(pack){
 
 async function run(command){
   try {
-    return await exec(`${command}`)
+    const result = await exec(`${command}`)
+    return result
   } catch (error) {
     throw error
   }
