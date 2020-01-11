@@ -1,5 +1,4 @@
 const inquirer = require("inquirer")
-const formats = require("../formats")
 const print = require("../print")
 
 async function movieDetails(list) {
@@ -9,7 +8,7 @@ async function movieDetails(list) {
         type: "list",
         name: "movie",
         message: `Choose the movie (${list.length} results):`,
-        choices: [...formats.movieList(list)],
+        choices: list,
         pageSize: 20,
       },
     ])
