@@ -2,12 +2,15 @@ const values = require("../values")
 const axios = require("axios")
 const print = require("../print")
 
-async function getYtsMovies(movieName) {
-  const { SERVERS } = values
-  const endpoint = `${SERVERS.YTS}/list_movies.json?query_term="${movieName}"&sort_by=year&limit=50`
+const { SERVERS } = values
 
+const httpBase = axios.create({
+  baseURL: SERVERS.YTS
+})
+
+async function getYtsMovies(movieName) {
   try {
-    const res = await axios.get(endpoint)
+    const res = await httpBase(`/list_movies.json?query_term="${movieName}"&sort_by=year&limit=50`)
     return res.data.data.movies
   } catch (error) {
     print.errorMessage(` (Get Movies - service): ${error.message}`)
@@ -16,11 +19,8 @@ async function getYtsMovies(movieName) {
 }
 
 async function getYtsMovieDetails(movieId) {
-  const { SERVERS } = values
-  const endpoint = `${SERVERS.YTS}/movie_details.json?movie_id=${movieId}`
-
   try {
-    const res = await axios.get(endpoint)
+    const res = await httpBase.get(`/movie_details.json?movie_id=${movieId}`)
     return res.data
   } catch (error) {
     print.errorMessage(` (Get movie details - service): ${error.message}`)

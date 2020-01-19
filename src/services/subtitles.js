@@ -2,12 +2,15 @@ const axios = require("axios")
 const values = require("../values")
 const print = require("../print")
 
-async function getSubtitles(imdbId) {
-  const { SERVERS } = values
-  const endpoint = `${SERVERS.YIFY_LEGENDS}/movie-imdb/${imdbId}`
+const { SERVERS } = values
 
+const httpBase = axios.create({
+  baseURL: SERVERS.YIFY_LEGENDS
+})
+
+async function getSubtitles(imdbId) {
   try {
-    const res = await axios.get(endpoint)
+    const res = await httpBase.get(`/movie-imdb/${imdbId}`)
     return res.data
   } catch (error) {
     print.errorMessage(` (Get subtitles - service): ${error.message}`)
