@@ -11,6 +11,7 @@ async function getPopcornMovies(movieName){
     return res.data
   } catch (error) {
     print.errorMessage(` (Popcorn: get movies): ${error.message}`)
+    process.exit()
   }
 }
 
@@ -23,6 +24,7 @@ async function getPopcornTorrents(imdbId) {
     return res.data
   } catch (error) {
     print.errorMessage(" No torrents provided by Popcorn Time")
+    process.exit()
   }
 }
 

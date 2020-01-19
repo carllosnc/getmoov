@@ -7,7 +7,6 @@ const actions = require("../actions")
 const crawlers = require("../crawlers")
 
 const loadingSearch = ora("Searching movie...")
-const loadingTorrents = ora("Searching torrents...")
 const loadingSubtitles = ora("Searching subtitles...")
 
 async function yts() {
@@ -44,16 +43,8 @@ async function yts() {
     Torrents
   ===========================*/
 
-  // get torrents
-  loadingTorrents.start()
-  const popCornResponse = await services.getPopcornTorrents(movie.imdb_code)
-  loadingTorrents.stop()
-
   // select torrent quality
-  const torrentQuality = await questions.selectTorrent([
-    ...formats.ytsTorrents(movie.torrents),
-    ...formats.popcornTorrents(popCornResponse),
-  ])
+  const torrentQuality = await questions.selectTorrent(formats.ytsTorrents(movie.torrents))
 
   /*=========================
     Torrent Client

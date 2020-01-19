@@ -10,7 +10,6 @@ const loadingSearch = ora("Searching movies...")
 const loadingSubtitles = ora("Searching subtitles...")
 
 async function popcorn(){
-
   /*=========================
     Type
   ===========================*/
@@ -93,7 +92,6 @@ async function popcorn(){
 
     print.credits()
   }
-
 }
 
 module.exports = {
