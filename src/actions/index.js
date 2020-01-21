@@ -1,10 +1,7 @@
 const print = require("../print")
 const shell = require("../shell")
 
-function openClient(clientResult, torrentResult) {
-  const { client } = clientResult
-  const { torrent } = torrentResult
-
+function openClient(client, torrent) {
   if (client === "print") {
     print.torrentLink(torrent)
   } else {
