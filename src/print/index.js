@@ -25,6 +25,14 @@ function popcornMovie(movie){
   console.log("")
 }
 
+function popcornTvShow(tvshow){
+  console.log("")
+  console.log(` ${colors.YellowBold(tvshow.year)} • ${colors.CyanBold(tvshow.title)}`)
+  console.log(` ${colors.Green("Cover:")} ${tvshow.images.poster}`)
+  console.log(` ${colors.Green("Sessions:")} ${tvshow.num_seasons}`)
+  console.log("")
+}
+
 function logo() {
   console.log(`
   ▄▄▄▄▄▄▄
@@ -52,6 +60,7 @@ module.exports = {
   subtitleLink,
   movie,
   popcornMovie,
+  popcornTvShow,
   credits,
   logo,
 }

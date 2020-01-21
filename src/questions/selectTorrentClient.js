@@ -11,7 +11,8 @@ async function selectTorrentClient() {
       choices: formats.torrentClientOptions(),
     })
 
-    return result
+    return result.client
+
   } catch (error) {
     print.errorMessage(error.message)
   }

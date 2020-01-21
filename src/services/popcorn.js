@@ -28,7 +28,29 @@ async function getPopcornTorrents(imdbId) {
   }
 }
 
+async function getPopCornTvShows(tvshowName){
+  try{
+    const res = await httpBase.get(`/shows/1?keywords="${tvshowName}"`)
+    return res.data
+  } catch (error) {
+    print.errorMessage(` (Popcorn: get TV Shows): ${error.message}`)
+    process.exit()
+  }
+}
+
+async function getPopCornTvShowDetails(imdbId){
+  try{
+    const res = await httpBase.get(`/show/${imdbId}`)
+    return res.data
+  } catch (error) {
+    print.errorMessage(` (Popcorn: get TV Show details)`)
+    process.exit()
+  }
+}
+
 module.exports = {
   getPopcornMovies,
-  getPopcornTorrents
+  getPopcornTorrents,
+  getPopCornTvShows,
+  getPopCornTvShowDetails
 }

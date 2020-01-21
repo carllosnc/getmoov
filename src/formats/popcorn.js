@@ -9,6 +9,30 @@ function popcornMoviesList(list){
   })
 }
 
+function popcornTvShowList(list){
+  return list.map(tvshow => {
+    const year = colors.YellowBold(tvshow.year)
+    const sessions = colors.Yellow(`Sessions: ${tvshow.num_seasons}`)
+
+    return {
+      name: `${year} • ${sessions} | ${tvshow.title}`,
+      value: tvshow
+    }
+  })
+}
+
+function popcornTvShowEp(list){
+  return list.map(episode => {
+    const season = colors.Yellow(`Season: ${episode.season}`)
+    const ep = colors.Yellow(`EP: ${episode.episode}`)
+
+    return {
+      name: `${season} • ${ep} | ${episode.title}`,
+      value: episode
+    }
+  })
+}
+
 function popcornTorrents(movie) {
   const formatedTorrents = []
 
@@ -33,7 +57,32 @@ function popcornTorrents(movie) {
   return formatedTorrents
 }
 
+function popcornTvShowTorrent(tvshow){
+  const formatedTorrents = []
+
+  if(tvshow && tvshow.torrents){
+    for(const item in tvshow.torrents){
+      const torrent = tvshow.torrents[item]
+
+      const quality = `${colors.Green(`[POPCORN] Torrent ${item}:`)}`
+      const seeds = `${colors.Yellow("Seeds:")} ${torrent.seeds}`
+      const peers = `${colors.Yellow("Peers:")} ${torrent.peers}`
+      const provider = `${colors.Yellow("Provider:")} ${torrent.provider}`
+
+      formatedTorrents.push({
+        name: `${quality} | ${provider} | ${peers} | ${seeds}`,
+        value: torrent.url
+      })
+    }
+  }
+
+  return formatedTorrents
+}
+
 module.exports = {
   popcornMoviesList,
-  popcornTorrents
+  popcornTvShowList,
+  popcornTvShowEp,
+  popcornTorrents,
+  popcornTvShowTorrent
 }

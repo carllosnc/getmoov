@@ -14,6 +14,7 @@ async function selectSubtitleClient() {
     ])
 
     return result.subtitleClient
+
   } catch (error) {
     print.errorMessage(error.message)
   }

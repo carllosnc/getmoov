@@ -7,6 +7,8 @@ const selectSubtitleClient = require("./selectSubtitleClient")
 const selectProvider = require("./selectProvider")
 const selectMediaType = require("./selectMediaType")
 
+const tvShows = require("./tvShows")
+
 module.exports = {
   selectProvider,
   searchMovies,
@@ -15,5 +17,6 @@ module.exports = {
   selectSubtitle,
   selectTorrentClient,
   selectSubtitleClient,
-  selectMediaType
+  selectMediaType,
+  ...tvShows
 }

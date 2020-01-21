@@ -12,7 +12,8 @@ async function selectTorrent(torrentOptions) {
       },
     ])
 
-    return result
+    return result.torrent
+
   } catch (error) {
     print.errorMessage(error.message)
   }

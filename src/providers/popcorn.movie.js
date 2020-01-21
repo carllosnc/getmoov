@@ -52,7 +52,7 @@ async function popcornMovie(){
   actions.openClient(client, torrentQuality)
 
   /*=========================
-    Torrent Client
+    Subtitle
   ===========================*/
 
   loadingSubtitles.start()
