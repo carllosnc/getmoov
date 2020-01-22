@@ -14,6 +14,7 @@ async function movieDetails(list) {
     ])
 
     return result.movie
+
   } catch (error) {
     print.errorMessage(error.message)
   }

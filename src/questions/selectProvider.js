@@ -13,6 +13,7 @@ async function selectProvider(){
     ])
 
     return result.provider
+
   }catch(error){
     print.errorMessage(error.message)
   }

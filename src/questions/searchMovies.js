@@ -12,6 +12,7 @@ async function searchMovies() {
     ])
 
     return result.movieName
+
   } catch (error) {
     print.errorMessage(error.message)
   }

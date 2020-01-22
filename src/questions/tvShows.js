@@ -12,6 +12,7 @@ async function searchTvShows(){
     ])
 
     return result.tvShowName
+
   }catch (error) {
     print.errorMessage(error.message)
   }

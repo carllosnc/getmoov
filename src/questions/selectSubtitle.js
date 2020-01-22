@@ -15,6 +15,7 @@ async function selectSubtitle(legends) {
     ])
 
     return result.legend
+
   } catch (error) {
     print.errorMessage(error.message)
   }
