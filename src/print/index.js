@@ -1,11 +1,11 @@
 const colors = require("../colors")
 
 function errorMessage(message) {
-  console.log(colors.Err(`${message}`))
+  console.log(colors.Err(`${message} \n`))
 }
 
 function successMessage(message) {
-  console.log(colors.GreenBold(`${message}`))
+  console.log(colors.GreenBold(`${message} \n`))
 }
 
 function movie(movie) {
