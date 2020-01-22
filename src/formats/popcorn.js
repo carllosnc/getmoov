@@ -48,7 +48,7 @@ function popcornTorrents(movie) {
 
         formatedTorrents.push({
           name: `${quality} ${size} | ${peers} | ${seeds}`,
-          value: torrent.url,
+          value: torrent.url
         })
       }
     }

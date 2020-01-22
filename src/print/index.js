@@ -42,7 +42,7 @@ function logo() {
 }
 
 function credits() {
-  console.log(`\n  Getmoov | designed and coded with ${colors.Red("♥")} \n`)
+  console.log(`  Getmoov | designed and coded with ${colors.Red("♥")} \n`)
 }
 
 function torrentLink(torrent) {
@@ -50,7 +50,7 @@ function torrentLink(torrent) {
 }
 
 function subtitleLink(torrent) {
-  console.log(`\n  ${colors.GreenBg(" SUBTITLE LINK: ")} ${torrent}`)
+  console.log(`\n  ${colors.GreenBg(" SUBTITLE LINK: ")} ${torrent} \n`)
 }
 
 module.exports = {
