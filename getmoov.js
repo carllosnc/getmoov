@@ -5,7 +5,6 @@ const providers = require("./src/providers")
 print.logo()
 
 async function app() {
-  // Select provider
   const providerName = await questions.selectProvider()
 
   if(providerName === "YTS"){
