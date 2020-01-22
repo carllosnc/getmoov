@@ -43,7 +43,7 @@ async function getPopCornTvShowDetails(imdbId){
     const res = await httpBase.get(`/show/${imdbId}`)
     return res.data
   } catch (error) {
-    print.errorMessage(` (Popcorn: get TV Show details)`)
+    print.errorMessage(" (Popcorn: get TV Show details)")
     process.exit()
   }
 }

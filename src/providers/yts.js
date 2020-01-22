@@ -5,89 +5,47 @@ const ora = require("ora")
 const print = require("../print")
 const actions = require("../actions")
 const crawlers = require("../crawlers")
+const exceptions = require("../exceptions")
 
 const loadingSearch = ora("Searching movie...")
 const loadingSubtitles = ora("Searching subtitles...")
 
 async function yts() {
-
-  /*=========================
-    Search
-  ===========================*/
-
-  // search movies
   const searchName = await questions.searchMovies()
 
   loadingSearch.start()
+
   const movies = await services.getYtsMovies(searchName)
+
   loadingSearch.stop()
 
-  // no result
-  if (!movies) {
-    print.errorMessage("\n  No movies found.")
-    print.credits()
-    process.exit()
-  }
+  exceptions.noResult(movies, "No movies found.")
 
-  /*=========================
-    Movie
-  ===========================*/
-
-  // chose the movie
   const movie = await questions.selectMovie(formats.ytsMoviesList(movies))
 
-  // show the movie
   print.movie(movie)
 
-  /*=========================
-    Torrents
-  ===========================*/
-
-  // select torrent quality
   const torrentQuality = await questions.selectTorrent(formats.ytsTorrents(movie.torrents))
 
-  /*=========================
-    Torrent Client
-  ===========================*/
-
-  // select torrent client
   const client = await questions.selectTorrentClient()
 
-  // open torrent client
   actions.openClient(client, torrentQuality)
 
-  /*=========================
-    Subtitle
-  ===========================*/
-
-  // get legends
   loadingSubtitles.start()
+
   const legends = await services.getSubtitles(movie.imdb_code)
+
   loadingSubtitles.stop()
 
   const filteredSubtitles = crawlers.filterSubtitles(legends)
 
-  // no subtitle found
-  if (!filteredSubtitles.length) {
-    print.errorMessage("  No subtitles found.")
-    print.credits()
-    process.exit()
-  }
+  exceptions.noResult(filteredSubtitles.length, "No subtitles found.")
 
-  // select legend
   const selectedSubtitle = await questions.selectSubtitle(filteredSubtitles)
 
-  /*=========================
-    Subtitle client
-  ===========================*/
-
-  // download subtitle
   const subtitleClient = await questions.selectSubtitleClient()
-  actions.downloadSubtitle(subtitleClient, selectedSubtitle)
 
-  /*=========================
-    Credits
-  ===========================*/
+  actions.downloadSubtitle(subtitleClient, selectedSubtitle)
 
   print.credits()
 }

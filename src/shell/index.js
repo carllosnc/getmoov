@@ -14,12 +14,8 @@ async function which(pack){
 }
 
 async function run(command){
-  try {
-    const result = await exec(`${command}`)
-    return result
-  } catch (error) {
-    throw error
-  }
+  const result = await exec(`${command}`)
+  return result
 }
 
 module.exports = {
