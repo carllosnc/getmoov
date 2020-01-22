@@ -1,7 +1,24 @@
 const inquirer = require("inquirer")
 const print = require("../print")
 
-async function movieDetails(list) {
+async function searchMovies() {
+  try {
+    const result = await inquirer.prompt([
+      {
+        type: "input",
+        name: "movieName",
+        message: "Search movie:",
+      },
+    ])
+
+    return result.movieName
+
+  } catch (error) {
+    print.errorMessage(error.message)
+  }
+}
+
+async function selectMovie(list) {
   try {
     const result = await inquirer.prompt([
       {
@@ -20,4 +37,7 @@ async function movieDetails(list) {
   }
 }
 
-module.exports = movieDetails
+module.exports = {
+  searchMovies,
+  selectMovie
+}
