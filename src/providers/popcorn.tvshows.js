@@ -13,17 +13,13 @@ async function PopCornTvShows(){
   const searchName = await questions.searchTvShows()
 
   loadingSearch.start()
-
   const tvshows = await services.getPopCornTvShows(searchName)
-
   loadingSearch.stop()
 
   exceptions.noResult(tvshows.length, "No TV show found")
 
   const tvshow = await questions.selectTvShow(formats.popcornTvShowList(tvshows))
-
   loadingTvShow.start()
-
   const details = await services.getPopCornTvShowDetails(tvshow.imdb_id)
 
   loadingTvShow.stop()

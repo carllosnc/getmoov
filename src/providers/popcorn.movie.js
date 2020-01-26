@@ -9,14 +9,13 @@ const exceptions = require("../exceptions")
 
 const loadingSearch = ora("Searching movies...")
 const loadingSubtitles = ora("Searching subtitles...")
+const loadingAction = ora("Loading...")
 
 async function popcornMovie(){
   const searchName = await questions.searchMovies()
 
   loadingSearch.start()
-
   const movies = await services.getPopcornMovies(searchName)
-
   loadingSearch.stop()
 
   exceptions.noResult(movies.length, "No movies found.")
@@ -32,9 +31,7 @@ async function popcornMovie(){
   actions.openClient(client, torrentQuality)
 
   loadingSubtitles.start()
-
   const subtitles = await services.getSubtitles(movie.imdb_id)
-
   loadingSubtitles.stop()
 
   const filteredSubtitles = crawlers.filterSubtitles(subtitles)
@@ -45,7 +42,11 @@ async function popcornMovie(){
 
   const subtitleClient = await questions.selectSubtitleClient()
 
-  actions.downloadSubtitle(subtitleClient, selectedSubtitle)
+  loadingAction.start()
+  const actionResult = await actions.downloadSubtitle(subtitleClient, selectedSubtitle)
+  loadingAction.stop()
+
+  print.message(actionResult)
 
   print.credits()
 }

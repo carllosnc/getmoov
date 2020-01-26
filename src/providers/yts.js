@@ -9,6 +9,7 @@ const exceptions = require("../exceptions")
 
 const loadingSearch = ora("Searching movie...")
 const loadingSubtitles = ora("Searching subtitles...")
+const loadingAction = ora("Loading...")
 
 async function yts() {
   const searchName = await questions.searchMovies()
@@ -45,7 +46,13 @@ async function yts() {
 
   const subtitleClient = await questions.selectSubtitleClient()
 
-  actions.downloadSubtitle(subtitleClient, selectedSubtitle)
+  loadingAction.start()
+
+  const actionResult = await actions.downloadSubtitle(subtitleClient, selectedSubtitle)
+
+  loadingAction.stop()
+
+  print.message(actionResult)
 
   print.credits()
 }
