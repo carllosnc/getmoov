@@ -1,20 +1,21 @@
 const print = require("../print")
 const shell = require("../shell")
+const formats = require("../formats")
 
 function openClient(client, torrent) {
   if (client === "print") {
-    print.torrentLink(torrent)
+    print.message(formats.torrentLink(torrent))
   } else {
     shell.run(`${client} ${torrent}`)
   }
 }
 
-function downloadSubtitle(client, subtitle) {
+async function downloadSubtitle(client, subtitle) {
   if (client === "print") {
-    print.subtitleLink(subtitle)
+    return formats.subtitleLink(subtitle)
   } else if (client === "wget") {
-    shell.run(`wget -P ~/Downloads/ ${subtitle}`)
-    print.successMessage("\n  Subtitle saved in your download folder [ ~/Download ]")
+    await shell.run(`wget -P ~/Downloads/ ${subtitle}`)
+    return formats.successMessage("\n  Subtitle saved in your download folder [ ~/Download ]\n")
   } else {
     shell.run(`${client} ${subtitle}`)
   }

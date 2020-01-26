@@ -1,5 +1,9 @@
 const colors = require("../colors")
 
+function message(message){
+  console.log(message)
+}
+
 function errorMessage(message) {
   console.log(colors.Err(`${message} \n`))
 }
@@ -54,6 +58,7 @@ function subtitleLink(torrent) {
 }
 
 module.exports = {
+  message,
   errorMessage,
   successMessage,
   torrentLink,

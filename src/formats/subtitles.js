@@ -7,6 +7,7 @@ function ratingSub(rating) {
   if (value > 0) {
     return colors.GreenBg(` ${value} `)
   }
+
   if (value < 0) {
     return colors.RedBg(` ${value} `)
   }
@@ -40,6 +41,7 @@ function subtitleClients() {
       value: "firefox",
     })
   }
+
   if (shell.which("wget")) {
     clients.push({
       name: "WGet",
@@ -50,7 +52,12 @@ function subtitleClients() {
   return clients
 }
 
+function subtitleLink(torrent) {
+  return `\n  ${colors.GreenBg(" SUBTITLE LINK: ")} ${torrent} \n`
+}
+
 module.exports = {
   yifySubtitle,
   subtitleClients,
+  subtitleLink
 }

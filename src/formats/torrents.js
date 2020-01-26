@@ -1,4 +1,5 @@
 const shell = require("../shell")
+const colors = require("../colors")
 
 function torrentClientOptions() {
   const options = [
@@ -18,6 +19,11 @@ function torrentClientOptions() {
   return options
 }
 
+function torrentLink(torrent) {
+  return `\n  ${colors.GreenBg(" TORRENT LINK: ")} ${torrent} \n`
+}
+
 module.exports = {
-  torrentClientOptions
+  torrentClientOptions,
+  torrentLink
 }
