@@ -5,13 +5,13 @@ const providers = require("./src/providers")
 print.logo()
 
 async function app() {
-  const providerName = await questions.selectProvider()
+  const provider = await questions.selectProvider()
 
-  if(providerName === "YTS"){
+  if(provider === "YTS"){
     providers.yts()
   }
 
-  if(providerName === "Popcorn Time"){
+  if(provider === "Popcorn Time"){
     providers.popcorn()
   }
 }

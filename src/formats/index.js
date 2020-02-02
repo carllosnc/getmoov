@@ -18,5 +18,5 @@ module.exports = {
   ...subtitlesFormats,
   ...popcornFormats,
   errorMessage,
-  successMessage,
+  successMessage
 }

@@ -4,12 +4,12 @@ function message(message){
   console.log(message)
 }
 
-function errorMessage(message) {
-  console.log(colors.Err(`${message} \n`))
+function error(message){
+  console.log(colors.Err(message))
 }
 
-function successMessage(message) {
-  console.log(colors.GreenBold(`${message} \n`))
+function success(message){
+  console.log(colors.Green(message))
 }
 
 function movie(movie) {
@@ -49,23 +49,13 @@ function credits() {
   console.log(`  Getmoov | designed and coded with ${colors.Red("♥")} \n`)
 }
 
-function torrentLink(torrent) {
-  console.log(`\n  ${colors.GreenBg(" TORRENT LINK: ")} ${torrent} \n`)
-}
-
-function subtitleLink(torrent) {
-  console.log(`\n  ${colors.GreenBg(" SUBTITLE LINK: ")} ${torrent} \n`)
-}
-
 module.exports = {
   message,
-  errorMessage,
-  successMessage,
-  torrentLink,
-  subtitleLink,
   movie,
   popcornMovie,
   popcornTvShow,
   credits,
   logo,
+  error,
+  success
 }
