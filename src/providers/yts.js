@@ -15,9 +15,7 @@ async function yts() {
   const searchName = await questions.searchMovies()
 
   loadingSearch.start()
-
   const movies = await services.getYtsMovies(searchName)
-
   loadingSearch.stop()
 
   exceptions.noResult(movies, "No movies found.")
@@ -33,9 +31,7 @@ async function yts() {
   actions.openClient(client, torrentQuality)
 
   loadingSubtitles.start()
-
   const legends = await services.getSubtitles(movie.imdb_code)
-
   loadingSubtitles.stop()
 
   const filteredSubtitles = crawlers.filterSubtitles(legends)
@@ -47,12 +43,10 @@ async function yts() {
   const subtitleClient = await questions.selectSubtitleClient()
 
   loadingAction.start()
-
   const actionResult = await actions.downloadSubtitle(subtitleClient, selectedSubtitle)
-
   loadingAction.stop()
 
-  print.message(actionResult)
+  print.success(actionResult)
 
   print.credits()
 }

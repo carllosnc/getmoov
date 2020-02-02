@@ -15,7 +15,7 @@ async function downloadSubtitle(client, subtitle) {
     return formats.subtitleLink(subtitle)
   } else if (client === "wget") {
     await shell.run(`wget -P ~/Downloads/ ${subtitle}`)
-    return formats.successMessage("\n  Subtitle saved in your download folder [ ~/Download ]\n")
+    return "\n  Subtitle saved in your download folder [ ~/Download ]\n"
   } else {
     shell.run(`${client} ${subtitle}`)
   }
