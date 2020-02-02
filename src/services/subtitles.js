@@ -13,7 +13,7 @@ async function getSubtitles(imdbId) {
     const res = await httpBase.get(`/movie-imdb/${imdbId}`)
     return res.data
   } catch (error) {
-    print.errorMessage(` (Get subtitles - service): ${error.message}`)
+    print.error(` (Get subtitles - service): ${error.message}`)
     process.exit()
   }
 }

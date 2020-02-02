@@ -13,7 +13,7 @@ async function getPopcornMovies(movieName){
     const res = await httpBase.get(`/movies/1?keywords="${movieName}"`)
     return res.data
   } catch (error) {
-    print.errorMessage(` (Popcorn: get movies): ${error.message}`)
+    print.error(` (Popcorn: get movies): ${error.message}`)
     process.exit()
   }
 }
@@ -23,7 +23,7 @@ async function getPopcornTorrents(imdbId) {
     const res = await httpBase.get(`/movie/${imdbId}`)
     return res.data
   } catch (error) {
-    print.errorMessage(" No torrents provided by Popcorn Time")
+    print.error(" No torrents provided by Popcorn Time")
     process.exit()
   }
 }
@@ -33,7 +33,7 @@ async function getPopCornTvShows(tvshowName){
     const res = await httpBase.get(`/shows/1?keywords="${tvshowName}"`)
     return res.data
   } catch (error) {
-    print.errorMessage(` (Popcorn: get TV Shows): ${error.message}`)
+    print.error(` (Popcorn: get TV Shows): ${error.message}`)
     process.exit()
   }
 }
@@ -43,7 +43,7 @@ async function getPopCornTvShowDetails(imdbId){
     const res = await httpBase.get(`/show/${imdbId}`)
     return res.data
   } catch (error) {
-    print.errorMessage(" (Popcorn: get TV Show details)")
+    print.error(" (Popcorn: get TV Show details)")
     process.exit()
   }
 }

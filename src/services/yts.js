@@ -13,7 +13,7 @@ async function getYtsMovies(movieName) {
     const res = await httpBase(`/list_movies.json?query_term="${movieName}"&sort_by=year&limit=50`)
     return res.data.data.movies
   } catch (error) {
-    print.errorMessage(` (Get Movies - service): ${error.message}`)
+    print.error(` (Get Movies - service): ${error.message}`)
     process.exit()
   }
 }
@@ -23,7 +23,7 @@ async function getYtsMovieDetails(movieId) {
     const res = await httpBase.get(`/movie_details.json?movie_id=${movieId}`)
     return res.data
   } catch (error) {
-    print.errorMessage(` (Get movie details - service): ${error.message}`)
+    print.error(` (Get movie details - service): ${error.message}`)
     process.exit()
   }
 }
