@@ -46,7 +46,7 @@ async function popcornMovie(){
   const actionResult = await actions.downloadSubtitle(subtitleClient, selectedSubtitle)
   loadingAction.stop()
 
-  print.success(actionResult)
+  print.message(actionResult)
 
   print.credits()
 }
