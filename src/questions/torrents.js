@@ -16,7 +16,7 @@ async function selectTorrent(torrentOptions) {
     return result.torrent
 
   } catch (error) {
-    print.errorMessage(error.message)
+    print.error(error.message)
   }
 }
 
@@ -32,7 +32,7 @@ async function selectTorrentClient() {
     return result.client
 
   } catch (error) {
-    print.errorMessage(error.message)
+    print.error(error.message)
   }
 }
 

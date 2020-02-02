@@ -14,7 +14,7 @@ async function searchMovies() {
     return result.movieName
 
   } catch (error) {
-    print.errorMessage(error.message)
+    print.error(error.message)
   }
 }
 
@@ -33,7 +33,7 @@ async function selectMovie(list) {
     return result.movie
 
   } catch (error) {
-    print.errorMessage(error.message)
+    print.error(error.message)
   }
 }
 

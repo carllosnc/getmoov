@@ -14,7 +14,7 @@ async function searchTvShows(){
     return result.tvShowName
 
   }catch (error) {
-    print.errorMessage(error.message)
+    print.error(error.message)
   }
 }
 
@@ -33,7 +33,7 @@ async function selectTvShow(list){
     return result.tvshow
 
   } catch (error) {
-    print.errorMessage(error.message)
+    print.error(error.message)
   }
 }
 
@@ -52,7 +52,7 @@ async function selectTvShowEp(list){
     return result.episode
 
   } catch (error) {
-    print.errorMessage(error.message)
+    print.error(error.message)
   }
 }
 
@@ -71,7 +71,7 @@ async function selectTvShowEpTorrent(list){
     return result.torrent
 
   } catch (error) {
-    print.errorMessage(error.message)
+    print.error(error.message)
   }
 }
 

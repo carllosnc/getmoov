@@ -17,7 +17,7 @@ async function selectSubtitle(legends) {
     return result.legend
 
   } catch (error) {
-    print.errorMessage(error.message)
+    print.error(error.message)
   }
 }
 
@@ -35,7 +35,7 @@ async function selectSubtitleClient() {
     return result.subtitleClient
 
   } catch (error) {
-    print.errorMessage(error.message)
+    print.error(error.message)
   }
 }
 

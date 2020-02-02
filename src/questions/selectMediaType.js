@@ -15,7 +15,7 @@ async function selectMediaType(){
     return result.mediatype
 
   }catch (error){
-    print.errorMessage(error.message)
+    print.error(error.message)
   }
 }
 
