@@ -37,6 +37,14 @@ function popcornTvShow(tvshow){
   console.log("")
 }
 
+function popcornAnime(anime){
+  console.log()
+  console.log(` ${colors.YellowBold(anime.year)} • ${colors.CyanBold(anime.title)}`)
+  console.log(` ${colors.Green("Cover:")} ${anime.images.poster}`)
+  console.log(` ${colors.Green("Sessions:")} ${anime.num_seasons}`)
+  console.log("")
+}
+
 function logo() {
   console.log(`
   ▄▄▄▄▄▄▄
@@ -54,6 +62,7 @@ module.exports = {
   movie,
   popcornMovie,
   popcornTvShow,
+  popcornAnime,
   credits,
   logo,
   error,
