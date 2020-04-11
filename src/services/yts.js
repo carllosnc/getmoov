@@ -10,7 +10,7 @@ const httpBase = axios.create({
 
 async function getYtsMovies(movieName) {
   try {
-    const res = await httpBase(`/list_movies.json?query_term="${movieName}"&sort_by=year&limit=50`)
+    const res = await httpBase.get(`/list_movies.json?query_term="${movieName}"&sort_by=year&limit=50`)
     return res.data.data.movies
   } catch (error) {
     print.error(` (Get Movies - service): ${error.message}`)
