@@ -1,6 +1,7 @@
 const questions = require("../questions")
 const popcornMovies = require("./popcorn.movie")
 const popcornTvShow = require("./popcorn.tvshows")
+const popcornAnime = require("./popcorn.anime")
 
 async function popcorn(){
   const mediaType = await questions.selectMediaType()
@@ -11,6 +12,10 @@ async function popcorn(){
 
   if(mediaType === "TV Shows"){
     popcornTvShow()
+  }
+
+  if(mediaType === "Animes"){
+    popcornAnime()
   }
 }
 
