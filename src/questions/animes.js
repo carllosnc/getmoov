@@ -43,7 +43,7 @@ async function selectAnimeEp(list){
       {
         type: "list",
         name: "animeEp",
-        message: `Choose the episode`,
+        message: "Choose the episode",
         choices: list,
         pageSize: 20
       }
