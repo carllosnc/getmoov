@@ -8,7 +8,7 @@ async function selectMediaType(){
         type: "list",
         name: "mediatype",
         message: "Select the media type:",
-        choices: ["Movies", "TV Shows", "Animes (todo)"]
+        choices: ["Movies", "TV Shows", "Animes"]
       }
     ])
 

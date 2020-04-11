@@ -19,18 +19,20 @@ async function PopCornTvShows(){
   exceptions.noResult(tvshows.length, "No TV show found")
 
   const tvshow = await questions.selectTvShow(formats.popcornTvShowList(tvshows))
+
+  print.popcornTvShow(tvshow)
+
   loadingTvShow.start()
   const details = await services.getPopCornTvShowDetails(tvshow.imdb_id)
-
   loadingTvShow.stop()
 
   const episode = await questions.selectTvShowEp(formats.popcornTvShowEp(details.episodes))
 
-  const torrent = await questions.selectTvShowEpTorrent(formats.popcornTvShowTorrent(episode))
+  const torrentQuality = await questions.selectTorrent(formats.popcornSerieTorrents(episode))
 
   const client = await questions.selectTorrentClient()
 
-  actions.openClient(client, torrent)
+  actions.openClient(client, torrentQuality)
 
   print.credits()
 }
