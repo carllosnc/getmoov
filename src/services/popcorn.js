@@ -48,9 +48,31 @@ async function getPopCornTvShowDetails(imdbId){
   }
 }
 
+async function getPopCornAnimes(animeName){
+  try{
+    const res = await httpBase.get(`/animes/1?keywords="${animeName}"`)
+    return res.data
+  } catch (error) {
+    print.error(` (Popcorn: get animes): ${error.message}`)
+    process.exit()
+  }
+}
+
+async function getPopcornAnimeDetails(id){
+  try {
+    const res = await httpBase.get(`/anime/${id}`)
+    return res.data
+  } catch (error) {
+    print.error(` (Popcorn: get anime details): ${error.message}`)
+    process.exit()
+  }
+}
+
 module.exports = {
   getPopcornMovies,
   getPopcornTorrents,
   getPopCornTvShows,
-  getPopCornTvShowDetails
+  getPopCornTvShowDetails,
+  getPopCornAnimes,
+  getPopcornAnimeDetails
 }
