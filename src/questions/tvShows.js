@@ -56,28 +56,8 @@ async function selectTvShowEp(list){
   }
 }
 
-async function selectTvShowEpTorrent(list){
-  try {
-    const result = await inquirer.prompt([
-      {
-        type: "list",
-        name: "torrent",
-        message: "Select the torrent:",
-        choices: list,
-        pageSize: 20
-      }
-    ])
-
-    return result.torrent
-
-  } catch (error) {
-    print.error(error.message)
-  }
-}
-
 module.exports = {
   searchTvShows,
   selectTvShow,
-  selectTvShowEp,
-  selectTvShowEpTorrent
+  selectTvShowEp
 }
