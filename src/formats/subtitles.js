@@ -35,13 +35,6 @@ function subtitleClients() {
     },
   ]
 
-  if (shell.which("firefox")) {
-    clients.push({
-      name: "Firefox",
-      value: "firefox",
-    })
-  }
-
   if (shell.which("wget")) {
     clients.push({
       name: "WGet",
