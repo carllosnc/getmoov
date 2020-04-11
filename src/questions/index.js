@@ -5,6 +5,7 @@ const tvShows = require("./tvShows")
 const movies = require("./movies")
 const torrents = require("./torrents")
 const subtitle = require("./subtitle")
+const animes = require("./animes")
 
 module.exports = {
   selectProvider,
@@ -12,5 +13,6 @@ module.exports = {
   ...subtitle,
   ...torrents,
   ...tvShows,
-  ...movies
+  ...movies,
+  ...animes
 }
