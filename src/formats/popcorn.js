@@ -1,7 +1,11 @@
 const colors = require("../colors")
 
 function popcornMoviesList(list){
-  return list.map(movie => {
+  const sortedList = list.sort((x, y) => {
+    return y.year - x.year
+  })
+
+  return sortedList.map(movie => {
     return {
       name: `${colors.YellowBold(movie.year)} | ${movie.title}`,
       value: movie,
@@ -9,26 +13,62 @@ function popcornMoviesList(list){
   })
 }
 
-function popcornTvShowList(list){
-  return list.map(tvshow => {
+function popcornTvShowList(seasons){
+  const sortedSeasons = seasons.sort((x, y) => {
+    return y.year - x.year
+  })
+
+  return sortedSeasons.map(tvshow => {
     const year = colors.YellowBold(tvshow.year)
-    const sessions = colors.Yellow(`Sessions: ${tvshow.num_seasons}`)
+    const seasons = colors.Yellow(`Seasons: ${tvshow.num_seasons}`)
 
     return {
-      name: `${year} • ${sessions} | ${tvshow.title}`,
+      name: `${year} • ${seasons} | ${tvshow.title}`,
       value: tvshow
     }
   })
 }
 
-function popcornTvShowEp(list){
-  return list.map(episode => {
-    const season = colors.Yellow(`Season: ${episode.season}`)
-    const ep = colors.Yellow(`EP: ${episode.episode}`)
+function popcornTvShowEp(episodes){
+  const sortedEpisodes = episodes.sort((x, y) => {
+    return (x.season - y.season) || (x.episode - y.episode)
+  })
+
+  return sortedEpisodes.map(item => {
+    const season = colors.Yellow(`Season: ${item.season}`)
+    const ep = colors.Yellow(`EP: ${item.episode}`)
 
     return {
-      name: `${season} • ${ep} | ${episode.title}`,
-      value: episode
+      name: `${season} • ${ep} | ${item.title}`,
+      value: item
+    }
+  })
+}
+
+function popcornAnimeEp(episodes){
+  const sortedEpisodes = episodes.sort((x, y) => {
+    return (x.season - y.season) || (x.episode - y.episode)
+  })
+
+  return sortedEpisodes.map(item => {
+    const season = colors.Yellow(`Season: ${item.season}`)
+    const ep = colors.Yellow(`EP: ${item.episode}`)
+
+    return {
+      name: `${season} • ${ep} | ${item.title}`,
+      value: item
+    }
+  })
+}
+
+function popcornAnimeList(seasons){
+  return seasons.map(anime => {
+    const year = colors.YellowBold(anime.year)
+    const seasons = colors.YellowBold(`Seasons: ${anime.num_seasons}`)
+
+    return {
+      name: `${year} • ${seasons} | ${anime.title}`,
+      value: anime
     }
   })
 }
@@ -57,7 +97,7 @@ function popcornTorrents(movie) {
   return formatedTorrents
 }
 
-function popcornTvShowTorrent(tvshow){
+function popcornSerieTorrents(tvshow){
   const formatedTorrents = []
 
   if(tvshow && tvshow.torrents){
@@ -84,5 +124,7 @@ module.exports = {
   popcornTvShowList,
   popcornTvShowEp,
   popcornTorrents,
-  popcornTvShowTorrent
+  popcornSerieTorrents,
+  popcornAnimeList,
+  popcornAnimeEp
 }
