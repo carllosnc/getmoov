@@ -29,7 +29,7 @@
   - :heavy_check_mark: Search movies and get the torrent
   - :heavy_check_mark: add link to download subtitles
   - :heavy_check_mark: Search movies TVshows and get the torrent
-  - :black_square_button: Search animes and get the torrent
+  - :heavy_check_mark: Search animes and get the torrent
 
 ---
 
