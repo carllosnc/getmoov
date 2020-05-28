@@ -8,7 +8,7 @@ async function selectProvider(){
         type: "list",
         name: "provider",
         message: "Select the provider:",
-        choices: ["YTS", "Popcorn Time"],
+        choices: ["YTS"],
       }
     ])
 

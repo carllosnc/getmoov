@@ -10,10 +10,6 @@ async function app() {
   if(provider === "YTS"){
     providers.yts()
   }
-
-  if(provider === "Popcorn Time"){
-    providers.popcorn()
-  }
 }
 
 app()
