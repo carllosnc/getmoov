@@ -2,7 +2,7 @@
   <img
     alt="icon"
     width="90"
-    src="https://cdn.icon-icons.com/icons2/119/PNG/128/terminal_19658.png"
+    src="https://i.imgur.com/WUw3eQK.png"
   />
 </p>
 
