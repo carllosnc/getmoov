@@ -11,7 +11,7 @@
 </h1>
 
 <p align="center">
-  A simple CLI to download movies from YTS and Popcorn Time.
+  A simple CLI to download movies from YTS
 </p>
 
 <img
@@ -27,9 +27,7 @@
 ### Features
 
   - :heavy_check_mark: Search movies and get the torrent
-  - :heavy_check_mark: add link to download subtitles
-  - :heavy_check_mark: Search movies TVshows and get the torrent
-  - :heavy_check_mark: Search animes and get the torrent
+  - :heavy_check_mark: Search and download movie subtitles
 
 ---
 
