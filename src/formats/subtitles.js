@@ -1,5 +1,4 @@
 const colors = require("../colors")
-const shell = require("../shell")
 
 function ratingSub(rating) {
   const value = Number(rating)
@@ -27,30 +26,11 @@ function yifySubtitle(torrentList) {
   })
 }
 
-function subtitleClients() {
-  const clients = [
-    {
-      name: "Print Link",
-      value: "print",
-    },
-  ]
-
-  if (shell.which("wget")) {
-    clients.push({
-      name: "WGet",
-      value: "wget",
-    })
-  }
-
-  return clients
-}
-
 function subtitleLink(torrent) {
   return `\n  ${colors.GreenBg(" SUBTITLE LINK: ")} ${torrent} \n`
 }
 
 module.exports = {
   yifySubtitle,
-  subtitleClients,
   subtitleLink
 }
