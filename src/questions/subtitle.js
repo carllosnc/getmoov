@@ -21,25 +21,6 @@ async function selectSubtitle(legends) {
   }
 }
 
-async function selectSubtitleClient() {
-  try {
-    const result = await inquirer.prompt([
-      {
-        type: "list",
-        name: "subtitleClient",
-        message: "Download Subtitles:",
-        choices: formats.subtitleClients(),
-      },
-    ])
-
-    return result.subtitleClient
-
-  } catch (error) {
-    print.error(error.message)
-  }
-}
-
 module.exports = {
-  selectSubtitle,
-  selectSubtitleClient
+  selectSubtitle
 }
