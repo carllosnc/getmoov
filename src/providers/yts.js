@@ -5,19 +5,22 @@ const ora = require("ora")
 const print = require("../print")
 const actions = require("../actions")
 const crawlers = require("../crawlers")
-const exceptions = require("../exceptions")
 
 const loadingSearch = ora("Searching movie...")
 const loadingSubtitles = ora("Searching subtitles...")
 
-async function yts() {
+async function yts(afterAll) {
   const searchName = await questions.searchMovies()
 
   loadingSearch.start()
   const movies = await services.getYtsMovies(searchName)
   loadingSearch.stop()
 
-  exceptions.noResult(movies, "No movies found.")
+  if(!movies){
+    print.error("\n  No Movies found")
+    afterAll()
+    return false
+  }
 
   const movie = await questions.selectMovie(formats.ytsMoviesList(movies))
 
@@ -28,18 +31,22 @@ async function yts() {
   actions.printTorrentLink(torrentQuality)
 
   loadingSubtitles.start()
-  const legends = await services.getSubtitles(movie.imdb_code)
+  const subtitle = await services.getSubtitles(movie.imdb_code)
   loadingSubtitles.stop()
 
-  const filteredSubtitles = crawlers.filterSubtitles(legends)
+  const filteredSubtitles = crawlers.filterSubtitles(subtitle)
 
-  exceptions.noResult(filteredSubtitles.length, "No subtitles found.")
+  if(!filteredSubtitles.length){
+    print.error("  No subtitle found")
+    afterAll()
+    return false
+  }
 
   const selectedSubtitle = await questions.selectSubtitle(filteredSubtitles)
 
   actions.printSubtitleLink(selectedSubtitle)
 
-  print.credits()
+  afterAll()
 }
 
 module.exports = { yts }
