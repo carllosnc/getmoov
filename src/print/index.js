@@ -48,13 +48,9 @@ function popcornAnime(anime){
 function logo() {
   console.log(`
   ▄▄▄▄▄▄▄
-  Getmoov
+  GETMOOV
   ▀▀▀▀▀▀▀
   `)
-}
-
-function credits() {
-  console.log(`  Getmoov | designed and coded with ${colors.Red("♥")} \n`)
 }
 
 module.exports = {
@@ -63,7 +59,6 @@ module.exports = {
   popcornMovie,
   popcornTvShow,
   popcornAnime,
-  credits,
   logo,
   error,
   success
