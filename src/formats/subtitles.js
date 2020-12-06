@@ -27,7 +27,7 @@ function yifySubtitle(torrentList) {
 }
 
 function subtitleLink(torrent) {
-  return `\n  ${colors.GreenBg(" SUBTITLE LINK: ")} ${torrent} \n`
+  return `\n  ${colors.GreenBg(" SUBTITLE LINK: ")} ${torrent}`
 }
 
 module.exports = {
