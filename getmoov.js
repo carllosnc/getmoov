@@ -2,13 +2,15 @@ const questions = require("./src/questions")
 const print = require("./src/print")
 const providers = require("./src/providers")
 
-print.logo()
-
 async function app() {
+  print.logo()
+
   const provider = await questions.selectProvider()
 
   if(provider === "YTS"){
-    providers.yts()
+    providers.yts(() => {
+      app()
+    })
   }
 }
 
