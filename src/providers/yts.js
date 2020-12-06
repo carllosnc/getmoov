@@ -9,7 +9,6 @@ const exceptions = require("../exceptions")
 
 const loadingSearch = ora("Searching movie...")
 const loadingSubtitles = ora("Searching subtitles...")
-const loadingAction = ora("Loading...")
 
 async function yts() {
   const searchName = await questions.searchMovies()
@@ -26,9 +25,7 @@ async function yts() {
 
   const torrentQuality = await questions.selectTorrent(formats.ytsTorrents(movie.torrents))
 
-  const client = await questions.selectTorrentClient()
-
-  actions.openClient(client, torrentQuality)
+  actions.printTorrentLink(torrentQuality)
 
   loadingSubtitles.start()
   const legends = await services.getSubtitles(movie.imdb_code)
@@ -40,13 +37,7 @@ async function yts() {
 
   const selectedSubtitle = await questions.selectSubtitle(filteredSubtitles)
 
-  const subtitleClient = await questions.selectSubtitleClient()
-
-  loadingAction.start()
-  const actionResult = await actions.downloadSubtitle(subtitleClient, selectedSubtitle)
-  loadingAction.stop()
-
-  print.message(actionResult)
+  actions.printSubtitleLink(selectedSubtitle)
 
   print.credits()
 }
