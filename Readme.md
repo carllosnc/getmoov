@@ -16,7 +16,7 @@
 
 <img
   alt="getmoov"
-  src="https://i.imgur.com/m8ZK904.gif"
+  src="https://i.imgur.com/FtAMMHM.png"
 />
 
 ### Dependencies
