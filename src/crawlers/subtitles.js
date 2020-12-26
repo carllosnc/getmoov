@@ -1,8 +1,8 @@
 const cheerio = require("cheerio")
+const values = require("../values")
 
 function filterSubtitles(content) {
   const $ = cheerio.load(content)
-  const SERVER = "https://www.yifysubtitles.com/subtitle"
   const subs = []
 
   $(".other-subs tr").each(function(index, item) {
@@ -15,8 +15,7 @@ function filterSubtitles(content) {
 
     if (rating && lang && link && name) {
       const fileName = link.replace("/subtitles/", "").trim()
-
-      const formatedLink = `${SERVER}/${fileName}.zip`
+      const formatedLink = `${values.SERVERS.YIFY_SUBS_DOWNLOAD}/${fileName}.zip`
       const formatedName = name.replace("subtitle", "").trim()
 
       subs.push({
