@@ -3,7 +3,6 @@ const formats = require("../formats")
 const services = require("../services")
 const ora = require("ora")
 const print = require("../print")
-const actions = require("../actions")
 const crawlers = require("../crawlers")
 
 const loadingSearch = ora("Searching movie...")
@@ -28,7 +27,7 @@ async function yts(afterAll) {
 
   const torrentQuality = await questions.selectTorrent(formats.ytsTorrents(movie.torrents))
 
-  actions.printTorrentLink(torrentQuality)
+  print.message(formats.torrentLink(torrentQuality))
 
   loadingSubtitles.start()
   const subtitle = await services.getSubtitles(movie.imdb_code)
@@ -44,7 +43,7 @@ async function yts(afterAll) {
 
   const selectedSubtitle = await questions.selectSubtitle(filteredSubtitles)
 
-  actions.printSubtitleLink(selectedSubtitle)
+  print.message(formats.subtitleLink(selectedSubtitle))
 
   afterAll()
 }
