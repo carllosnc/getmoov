@@ -5,7 +5,7 @@ const print = require("../print")
 const { SERVERS } = values
 
 const httpBase = axios.create({
-  baseURL: SERVERS.YIFY_LEGENDS
+  baseURL: SERVERS.YIFY_SUBS
 })
 
 async function getSubtitles(imdbId) {
