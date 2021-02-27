@@ -1,11 +1,3 @@
-<p align="center">
-  <img
-    alt="icon"
-    width="90"
-    src="https://i.imgur.com/WUw3eQK.png"
-  />
-</p>
-
 <h1 align="center">
   Getmoov
 </h1>
