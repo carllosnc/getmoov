@@ -47,9 +47,9 @@ function popcornAnime(anime){
 
 function logo() {
   console.log(`
-  ▄▄▄▄▄▄▄
-  GETMOOV
-  ▀▀▀▀▀▀▀
+  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+  GETMOOV V1.0.1
+  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
   `)
 }
 
