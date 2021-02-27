@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const print = require("./src/print")
 const providers = require("./src/providers")
 

@@ -8,7 +8,10 @@
     "format": "eslint src/**",
     "format-fix": "eslint src/** --fix"
   },
-  "author": "",
+  "bin": {
+    "getmoov": "index.js"
+  },
+  "author": "C4co",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
