@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  Just run in you terminal
+  Just run in your terminal
 </p>
 
 <h3 align="center">
