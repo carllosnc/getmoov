@@ -15,12 +15,12 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
-    "chalk": "^4.1.0",
-    "cheerio": "^1.0.0-rc.5",
-    "inquirer": "^8.0.0",
-    "ora": "^5.3.0"
+    "chalk": "^4.1.1",
+    "cheerio": "^1.0.0-rc.10",
+    "inquirer": "^8.1.1",
+    "ora": "^5.4.1"
   },
   "devDependencies": {
-    "eslint": "^7.20.0"
+    "eslint": "^7.29.0"
   }
 }
