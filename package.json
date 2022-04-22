@@ -3,11 +3,6 @@
   "version": "1.0.1",
   "description": "Search and download movies",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "eslint src/**",
-    "format-fix": "eslint src/** --fix"
-  },
   "bin": {
     "getmoov": "index.js"
   },
@@ -19,8 +14,5 @@
     "cheerio": "^1.0.0-rc.10",
     "inquirer": "^8.1.1",
     "ora": "^5.4.1"
-  },
-  "devDependencies": {
-    "eslint": "^7.29.0"
   }
 }
