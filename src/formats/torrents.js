@@ -1,9 +1,5 @@
-const colors = require("../colors")
+import { GreenBg } from '../colors/index.js'
 
-function torrentLink(torrent) {
-  return `\n  ${colors.GreenBg(" TORRENT LINK: ")} ${torrent} \n`
-}
-
-module.exports = {
-  torrentLink
+export function torrentLink(torrent) {
+  return `\n  ${GreenBg(' TORRENT LINK: ')} ${torrent} \n`
 }

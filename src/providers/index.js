@@ -1,5 +1,1 @@
-const yts = require('./yts')
-
-module.exports = {
-  ...yts,
-}
+export * from './yts.js'

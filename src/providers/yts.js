@@ -1,53 +1,64 @@
-const questions = require('../questions')
-const formats = require('../formats')
-const services = require('../services')
-const ora = require('ora')
-const print = require('../print')
-const crawlers = require('../crawlers')
+import {
+  searchMovies,
+  selectMovie,
+  selectTorrent,
+  selectSubtitle,
+} from '../questions/index.js'
+
+import {
+  ytsMoviesList,
+  ytsTorrents,
+  torrentLink,
+  subtitleLink,
+} from '../formats/index.js'
+
+import { getYtsMovies, getSubtitles } from '../services/index.js'
+
+import { errorMessage, showMovie, message } from '../print/index.js'
+
+import { filterSubtitles } from '../crawlers/index.js'
+
+import ora from 'ora'
 
 const loadingSearch = ora('Searching movie...')
 const loadingSubtitles = ora('Searching subtitles...')
 
-async function yts(afterAll) {
-  const searchName = await questions.searchMovies()
+export async function yts(afterAll) {
+  const searchName = await searchMovies()
 
   loadingSearch.start()
-  const movies = await services.getYtsMovies(searchName)
+  const movies = await getYtsMovies(searchName)
   loadingSearch.stop()
 
   if (!movies) {
-    print.error('\n  No Movies found')
+    errorMessage('\n  No Movies found')
     afterAll()
     return false
   }
 
-  const movie = await questions.selectMovie(formats.ytsMoviesList(movies))
+  const movie = await selectMovie(ytsMoviesList(movies))
 
-  print.movie(movie)
+  showMovie(movie)
 
-  const torrentQuality = await questions.selectTorrent(
-    formats.ytsTorrents(movie.torrents)
-  )
+  const torrentQuality = await selectTorrent(ytsTorrents(movie.torrents))
 
-  print.message(formats.torrentLink(torrentQuality))
+  message(torrentLink(torrentQuality))
 
   loadingSubtitles.start()
-  const subtitle = await services.getSubtitles(movie.imdb_code)
+  const subtitle = await getSubtitles(movie.imdb_code)
   loadingSubtitles.stop()
 
-  const filteredSubtitles = crawlers.filterSubtitles(subtitle)
+  const filteredSubtitles = filterSubtitles(subtitle)
 
   if (!filteredSubtitles.length) {
-    print.error('  No subtitle found')
+    errorMessage('  No subtitle found')
     afterAll()
     return false
   }
 
-  const selectedSubtitle = await questions.selectSubtitle(filteredSubtitles)
+  const selectedSubtitle = await selectSubtitle(filteredSubtitles)
 
-  print.message(formats.subtitleLink(selectedSubtitle))
+  message(subtitleLink(selectedSubtitle))
 
   afterAll()
 }
-
-module.exports = { yts }

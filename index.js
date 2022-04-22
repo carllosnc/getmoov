@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-const print = require('./src/print')
-const providers = require('./src/providers')
+import { logo } from './src/print/index.js'
+import { yts } from './src/providers/index.js'
 
 async function app() {
-  print.logo()
+  logo()
 
-  providers.yts(() => {
+  yts(() => {
     app()
   })
 }

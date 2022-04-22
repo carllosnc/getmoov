@@ -1,9 +1,11 @@
-const inquirer = require('inquirer')
-const print = require('../print')
+import inquirer from 'inquirer'
+import { errorMessage } from '../print/index.js'
 
-async function selectProvider() {
+const { prompt } = inquirer
+
+export async function selectProvider() {
   try {
-    const result = await inquirer.prompt([
+    const result = await prompt([
       {
         type: 'list',
         name: 'provider',
@@ -14,8 +16,6 @@ async function selectProvider() {
 
     return result.provider
   } catch (error) {
-    print.error(error.message)
+    errorMessage(error.message)
   }
 }
-
-module.exports = selectProvider

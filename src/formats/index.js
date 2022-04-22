@@ -1,9 +1,3 @@
-const ytsFormats = require('./yts')
-const torrentFormats = require('./torrents')
-const subtitlesFormats = require('./subtitles')
-
-module.exports = {
-  ...ytsFormats,
-  ...torrentFormats,
-  ...subtitlesFormats,
-}
+export * from './subtitles.js'
+export * from './torrents.js'
+export * from './yts.js'

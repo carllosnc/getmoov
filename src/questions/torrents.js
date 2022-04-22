@@ -1,9 +1,11 @@
-const inquirer = require('inquirer')
-const print = require('../print')
+import inquirer from 'inquirer'
+import { errorMessage } from '../print/index.js'
 
-async function selectTorrent(torrentOptions) {
+const { prompt } = inquirer
+
+export async function selectTorrent(torrentOptions) {
   try {
-    const result = await inquirer.prompt([
+    const result = await prompt([
       {
         type: 'list',
         name: 'torrent',
@@ -14,10 +16,6 @@ async function selectTorrent(torrentOptions) {
 
     return result.torrent
   } catch (error) {
-    print.error(error.message)
+    errorMessage(error.message)
   }
-}
-
-module.exports = {
-  selectTorrent,
 }

@@ -1,5 +1,1 @@
-const crawlerSubtitles = require('./subtitles')
-
-module.exports = {
-  ...crawlerSubtitles,
-}
+export * from './subtitles.js'

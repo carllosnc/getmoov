@@ -1,23 +1,19 @@
-const axios = require('axios')
-const values = require('../values')
-const print = require('../print')
+import axios from 'axios'
+import { YIFY_SUBS } from '../values/index.js'
+import { errorMessage } from '../print/index.js'
 
-const { SERVERS } = values
+const { create } = axios
 
-const httpBase = axios.create({
-  baseURL: SERVERS.YIFY_SUBS,
+const httpBase = create({
+  baseURL: YIFY_SUBS,
 })
 
-async function getSubtitles(imdbId) {
+export async function getSubtitles(imdbId) {
   try {
     const res = await httpBase.get(`/movie-imdb/${imdbId}`)
     return res.data
   } catch (error) {
-    print.error(` (Get subtitles - service): ${error.message}`)
+    errorMessage(` (Get subtitles - service): ${error.message}`)
     process.exit()
   }
-}
-
-module.exports = {
-  getSubtitles,
 }

@@ -1,9 +1,11 @@
-const inquirer = require('inquirer')
-const print = require('../print')
+import inquirer from 'inquirer'
+import { errorMessage } from '../print/index.js'
 
-async function searchMovies() {
+const { prompt } = inquirer
+
+export async function searchMovies() {
   try {
-    const result = await inquirer.prompt([
+    const result = await prompt([
       {
         type: 'input',
         name: 'movieName',
@@ -13,13 +15,13 @@ async function searchMovies() {
 
     return result.movieName
   } catch (error) {
-    print.error(error.message)
+    errorMessage(error.message)
   }
 }
 
-async function selectMovie(list) {
+export async function selectMovie(list) {
   try {
-    const result = await inquirer.prompt([
+    const result = await prompt([
       {
         type: 'list',
         name: 'movie',
@@ -31,11 +33,6 @@ async function selectMovie(list) {
 
     return result.movie
   } catch (error) {
-    print.error(error.message)
+    errorMessage(error.message)
   }
-}
-
-module.exports = {
-  searchMovies,
-  selectMovie,
 }

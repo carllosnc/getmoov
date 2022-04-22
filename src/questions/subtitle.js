@@ -1,25 +1,23 @@
-const inquirer = require('inquirer')
-const print = require('../print')
-const formats = require('../formats')
+import inquirer from 'inquirer'
+import { errorMessage } from '../print/index.js'
+import { yifySubtitle } from '../formats/index.js'
 
-async function selectSubtitle(legends) {
+const { prompt } = inquirer
+
+export async function selectSubtitle(legends) {
   try {
-    const result = await inquirer.prompt([
+    const result = await prompt([
       {
         type: 'list',
         name: 'legend',
         message: 'Select Subtitle:',
         pageSize: 20,
-        choices: formats.yifySubtitle(legends),
+        choices: yifySubtitle(legends),
       },
     ])
 
     return result.legend
   } catch (error) {
-    print.error(error.message)
+    errorMessage(error.message)
   }
-}
-
-module.exports = {
-  selectSubtitle,
 }

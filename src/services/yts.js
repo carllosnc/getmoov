@@ -1,36 +1,31 @@
-const values = require('../values')
-const axios = require('axios')
-const print = require('../print')
+import { YTS } from '../values/index.js'
+import axios from 'axios'
+import { errorMessage } from '../print/index.js'
 
-const { SERVERS } = values
+const { create } = axios
 
-const httpBase = axios.create({
-  baseURL: SERVERS.YTS,
+const httpBase = create({
+  baseURL: YTS,
 })
 
-async function getYtsMovies(movieName) {
+export async function getYtsMovies(movieName) {
   try {
     const res = await httpBase.get(
       `/list_movies.json?query_term="${movieName}"&sort_by=year&limit=50`
     )
     return res.data.data.movies
   } catch (error) {
-    print.error(` (Get Movies - service): ${error.message}`)
+    errorMessage(` (Get Movies - service): ${error.message}`)
     process.exit()
   }
 }
 
-async function getYtsMovieDetails(movieId) {
+export async function getYtsMovieDetails(movieId) {
   try {
     const res = await httpBase.get(`/movie_details.json?movie_id=${movieId}`)
     return res.data
   } catch (error) {
-    print.error(` (Get movie details - service): ${error.message}`)
+    errorMessage(` (Get movie details - service): ${error.message}`)
     process.exit()
   }
-}
-
-module.exports = {
-  getYtsMovies,
-  getYtsMovieDetails,
 }

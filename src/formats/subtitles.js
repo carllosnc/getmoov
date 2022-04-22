@@ -1,36 +1,39 @@
-const colors = require("../colors")
+import { GreenBg, RedBg, YellowBg, Green } from '../colors/index.js'
 
 function ratingSub(rating) {
   const value = Number(rating)
 
   if (value > 0) {
-    return colors.GreenBg(` ${value} `)
+    return GreenBg(` ${value} `)
   }
 
   if (value < 0) {
-    return colors.RedBg(` ${value} `)
+    return RedBg(` ${value} `)
   }
 
-  return colors.YellowBg(` ${value} `)
+  return YellowBg(` ${value} `)
 }
 
-function yifySubtitle(torrentList) {
-  return torrentList.map(legend => {
-    const lang = colors.Green(`${legend.lang.toUpperCase()}`)
-    const name = legend.name
+function truncateString(str, limit) {
+  if (str.length > limit) {
+    return str.slice(0, limit) + '...'
+  }
+
+  return str
+}
+
+export function yifySubtitle(torrentList) {
+  return torrentList.map(subtitle => {
+    const lang = Green(`${subtitle.lang.toUpperCase()}`)
+    const name = truncateString(subtitle.name, 30)
 
     return {
-      name: `${ratingSub(legend.rating)} • ${lang} | ${name}`,
-      value: legend.link,
+      name: `${ratingSub(subtitle.rating)} • ${lang} | ${name}`,
+      value: subtitle.link,
     }
   })
 }
 
-function subtitleLink(torrent) {
-  return `\n  ${colors.GreenBg(" SUBTITLE LINK: ")} ${torrent}`
-}
-
-module.exports = {
-  yifySubtitle,
-  subtitleLink
+export function subtitleLink(torrent) {
+  return `\n  ${GreenBg(' SUBTITLE LINK: ')} ${torrent}`
 }
