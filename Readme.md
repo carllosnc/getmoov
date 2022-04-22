@@ -25,16 +25,19 @@
   src="https://i.imgur.com/FtAMMHM.png"
 />
 
+### Install
 
-### Dependencies
-
-- [Node](https://github.com/nvm-sh/nvm)
+```
+npm install -g c4co/getmoov
+```
 
 ### Features
 
-  - :heavy_check_mark: Search movies and get the torrent
-  - :heavy_check_mark: Search and download subtitles
+- :heavy_check_mark: Search movies and get the torrent
+- :heavy_check_mark: Search and download subtitles
 
 ---
 
-Carlos Costa | 2019
+## [![Codacy Badge](https://app.codacy.com/project/badge/Grade/9d741ee7ed2a400a80788a20ba585288)](https://www.codacy.com/gh/C4co/getmoov/dashboard?utm_source=github.com&utm_medium=referral&utm_content=C4co/getmoov&utm_campaign=Badge_Grade)
+
+Carlos Costa @ 2019
