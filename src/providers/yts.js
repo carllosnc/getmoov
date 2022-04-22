@@ -1,12 +1,12 @@
-const questions = require("../questions")
-const formats = require("../formats")
-const services = require("../services")
-const ora = require("ora")
-const print = require("../print")
-const crawlers = require("../crawlers")
+const questions = require('../questions')
+const formats = require('../formats')
+const services = require('../services')
+const ora = require('ora')
+const print = require('../print')
+const crawlers = require('../crawlers')
 
-const loadingSearch = ora("Searching movie...")
-const loadingSubtitles = ora("Searching subtitles...")
+const loadingSearch = ora('Searching movie...')
+const loadingSubtitles = ora('Searching subtitles...')
 
 async function yts(afterAll) {
   const searchName = await questions.searchMovies()
@@ -15,8 +15,8 @@ async function yts(afterAll) {
   const movies = await services.getYtsMovies(searchName)
   loadingSearch.stop()
 
-  if(!movies){
-    print.error("\n  No Movies found")
+  if (!movies) {
+    print.error('\n  No Movies found')
     afterAll()
     return false
   }
@@ -25,7 +25,9 @@ async function yts(afterAll) {
 
   print.movie(movie)
 
-  const torrentQuality = await questions.selectTorrent(formats.ytsTorrents(movie.torrents))
+  const torrentQuality = await questions.selectTorrent(
+    formats.ytsTorrents(movie.torrents)
+  )
 
   print.message(formats.torrentLink(torrentQuality))
 
@@ -35,8 +37,8 @@ async function yts(afterAll) {
 
   const filteredSubtitles = crawlers.filterSubtitles(subtitle)
 
-  if(!filteredSubtitles.length){
-    print.error("  No subtitle found")
+  if (!filteredSubtitles.length) {
+    print.error('  No subtitle found')
     afterAll()
     return false
   }

@@ -1,4 +1,4 @@
-const SERVERS = require("./server")
+const SERVERS = require('./server')
 
 module.exports = {
   SERVERS,

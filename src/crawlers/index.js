@@ -1,4 +1,4 @@
-const crawlerSubtitles = require("./subtitles")
+const crawlerSubtitles = require('./subtitles')
 
 module.exports = {
   ...crawlerSubtitles,

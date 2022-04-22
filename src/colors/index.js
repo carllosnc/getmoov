@@ -1,4 +1,4 @@
-const chalk = require("chalk")
+const chalk = require('chalk')
 
 const CyanBold = text => chalk.cyan.bold(text)
 const YellowBold = text => chalk.yellow.bold(text)

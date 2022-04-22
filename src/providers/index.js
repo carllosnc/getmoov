@@ -1,5 +1,5 @@
-const yts = require("./yts")
+const yts = require('./yts')
 
 module.exports = {
-  ...yts
+  ...yts,
 }

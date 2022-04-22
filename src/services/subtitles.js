@@ -1,11 +1,11 @@
-const axios = require("axios")
-const values = require("../values")
-const print = require("../print")
+const axios = require('axios')
+const values = require('../values')
+const print = require('../print')
 
 const { SERVERS } = values
 
 const httpBase = axios.create({
-  baseURL: SERVERS.YIFY_SUBS
+  baseURL: SERVERS.YIFY_SUBS,
 })
 
 async function getSubtitles(imdbId) {
