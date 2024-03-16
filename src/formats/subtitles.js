@@ -25,7 +25,7 @@ function truncateString(str, limit) {
 export function yifySubtitle(torrentList) {
   return torrentList.map(subtitle => {
     const lang = Green(`${subtitle.lang.toUpperCase()}`)
-    const name = truncateString(subtitle.name, 30)
+    let name = truncateString(subtitle.name, 50).replace(/\n/g, '')
 
     return {
       name: `${ratingSub(subtitle.rating)} • ${lang} | ${name}`,
