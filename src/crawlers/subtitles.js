@@ -4,8 +4,9 @@ import { YIFY_SUBS_DOWNLOAD } from '../values/index.js'
 export function filterSubtitles(content) {
   const $ = load(content)
   const subs = []
+  const selector = $('.other-subs tr')
 
-  $('.other-subs tr').each(function (index, item) {
+  selector.each(function (index, item) {
     const element = $(item)
 
     const rating = element.find('.rating-cell > .label').text()
