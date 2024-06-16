@@ -38,7 +38,7 @@ npm install -g c4co/getmoov
 
 ---
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9d741ee7ed2a400a80788a20ba585288)](https://www.codacy.com/gh/C4co/getmoov/dashboard?utm_source=github.com&utm_medium=referral&utm_content=C4co/getmoov&utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/3f166449751f41f085b563f526476f86)](https://app.codacy.com/gh/carllosnc/getmoov/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 ---
 
