@@ -15,7 +15,7 @@
 </h3>
 
 <h3 align="center">
-  npx c4co/getmoov
+  npx carllosnc/getmoov
 </h3>
 
 <br/>
@@ -28,7 +28,7 @@
 ### Install
 
 ```
-npm install -g c4co/getmoov
+npm install -g carllosnc/getmoov
 ```
 
 ### Features
